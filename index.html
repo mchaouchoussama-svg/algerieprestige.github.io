@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algérie Prestige — Conciergerie Privée pour la Diaspora Algérienne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════════
+   ALGÉRIE PRESTIGE v3
+   Cabinet Privé · Confiance · Diaspora
+   Cormorant Garamond + DM Sans
+═══════════════════════════════════════ */
+
+:root {
+  --or:        #B8903A;
+  --or-2:      #CCA452;
+  --or-3:      #DEC07A;
+  --or-dim:    rgba(184,144,58,.11);
+  --or-glow:   rgba(184,144,58,.06);
+  --noir:      #060504;
+  --noir-2:    #0A0806;
+  --s1:        #100E09;
+  --s2:        #171410;
+  --s3:        #1E1A13;
+  --ivoire:    #EAE4D8;
+  --ivoire-2:  #D2CAB8;
+  --txt:       #B8B0A0;
+  --txt-m:     #8A8278;
+  --txt-d:     #5C5650;
+  --bord:      rgba(184,144,58,.13);
+  --bord-2:    rgba(184,144,58,.26);
+  --vert:      #3D7A55;
+  --r: 0px; /* sharp corners everywhere */
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+
+body {
+  background:var(--noir);
+  color:var(--txt);
+  font-family:'DM Sans',sans-serif;
+  font-weight:300;
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* subtle vignette atmosphere */
+body::after {
+  content:'';
+  position:fixed; inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 75% 15%, rgba(184,144,58,.035) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 80% at 15% 85%, rgba(184,144,58,.025) 0%, transparent 65%);
+  pointer-events:none; z-index:0;
+}
+
+img { display:block; max-width:100%; height:auto; }
+a   { text-decoration:none; color:inherit; transition:color .25s; }
+
+/* ── UTILS ── */
+.serif { font-family:'Cormorant Garamond',serif; }
+.container { max-width:1160px; margin:0 auto; padding:0 2.5rem; }
+
+.eyebrow {
+  display:inline-flex; align-items:center; gap:.7rem;
+  font-size:.55rem; letter-spacing:.44em; text-transform:uppercase;
+  color:var(--or);
+}
+.eyebrow::before {
+  content:''; display:inline-block;
+  width:20px; height:1px; background:var(--or); flex-shrink:0;
+}
+
+h1,h2,h3,h4 {
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300; line-height:1.1; color:var(--ivoire);
+}
+h1 { font-size:clamp(2.8rem,6vw,5.8rem); }
+h2 { font-size:clamp(1.9rem,3.5vw,3.2rem); }
+h3 { font-size:clamp(1.3rem,2vw,1.8rem); }
+
+p { color:var(--txt-m); line-height:1.85; }
+
+.reveal {
+  opacity:0; transform:translateY(24px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+.reveal.in { opacity:1; transform:none; }
+
+/* ═══════════════ NAV ═══════════════ */
+#nav {
+  position:fixed; inset:0 0 auto 0; z-index:100;
+  padding:1.5rem 2.5rem;
+  display:flex; align-items:center; justify-content:space-between;
+  transition:background .45s, padding .35s, border-color .35s;
+  border-bottom:1px solid transparent;
+}
+#nav.stuck {
+  background:rgba(6,5,4,.95);
+  backdrop-filter:blur(20px);
+  padding:1rem 2.5rem;
+  border-color:var(--bord);
+}
+
+.nav-logo { display:flex; flex-direction:column; gap:2px; }
+.nav-logo-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem; font-weight:400;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--or-2); line-height:1;
+}
+.nav-logo-tag {
+  font-size:.44rem; letter-spacing:.5em;
+  text-transform:uppercase; color:var(--txt-d);
+}
+
+.nav-links { display:flex; gap:2.25rem; list-style:none; }
+.nav-links a {
+  font-size:.58rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--txt-d); position:relative;
+}
+.nav-links a::after {
+  content:''; position:absolute; bottom:-4px; left:0;
+  width:0; height:1px; background:var(--or); transition:width .3s;
+}
+.nav-links a:hover { color:var(--or-2); }
+.nav-links a:hover::after { width:100%; }
+
+.nav-cta {
+  font-family:'DM Sans',sans-serif;
+  font-size:.56rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--noir); background:var(--or);
+  padding:.62rem 1.4rem; transition:background .25s;
+}
+.nav-cta:hover { background:var(--or-3); color:var(--noir); }
+
+/* ═══════════════ TOP BAR ═══════════════ */
+.top-bar {
+  background:var(--s1);
+  border-bottom:1px solid var(--bord);
+  padding:.55rem 2.5rem;
+  display:flex; align-items:center; justify-content:space-between;
+  position:relative; z-index:99;
+}
+.top-bar-contact {
+  display:flex; gap:2rem; align-items:center; flex-wrap:wrap;
+}
+.top-bar-item {
+  display:flex; align-items:center; gap:.45rem;
+  font-size:.56rem; letter-spacing:.12em; color:var(--txt-d);
+}
+.top-bar-item a { color:var(--txt-m); }
+.top-bar-item a:hover { color:var(--or-2); }
+.top-bar-dot {
+  width:4px; height:4px; border-radius:50%; background:var(--or); flex-shrink:0;
+}
+.top-bar-right {
+  font-size:.54rem; letter-spacing:.18em; text-transform:uppercase; color:var(--txt-d);
+}
+
+/* ═══════════════ HERO ═══════════════ */
+#hero {
+  min-height:100vh;
+  display:grid; grid-template-rows:1fr auto;
+  padding:0 2.5rem;
+  overflow:hidden; position:relative;
+}
+
+.hero-bg {
+  position:absolute; inset:0; z-index:0;
+  background:
+    linear-gradient(105deg, rgba(6,5,4,.97) 40%, rgba(6,5,4,.7) 100%),
+    url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85') center/cover no-repeat;
+}
+
+.hero-content {
+  position:relative; z-index:1;
+  display:flex; flex-direction:column; justify-content:center;
+  padding-top:9rem; padding-bottom:4rem;
+  max-width:660px;
+}
+
+.hero-tag {
+  margin-bottom:2rem;
+  opacity:0; animation:fadeUp .9s .2s forwards;
+}
+
+.hero-h1 {
+  margin-bottom:1.6rem;
+  opacity:0; animation:fadeUp .9s .4s forwards;
+}
+.hero-h1 em { font-style:italic; color:var(--or-2); }
+
+.hero-p {
+  font-size:.9rem; color:var(--txt-m); max-width:460px;
+  margin-bottom:.75rem;
+  opacity:0; animation:fadeUp .9s .6s forwards;
+}
+
+.hero-promise {
+  display:flex; flex-direction:column; gap:.4rem;
+  margin-bottom:2.5rem;
+  opacity:0; animation:fadeUp .9s .7s forwards;
+}
+.hero-promise-item {
+  display:flex; align-items:center; gap:.6rem;
+  font-size:.72rem; color:var(--txt-m);
+}
+.hero-promise-item::before {
+  content:'';
+  display:inline-block; width:5px; height:1px;
+  background:var(--or); flex-shrink:0;
+}
+
+.hero-btns {
+  display:flex; gap:1rem; flex-wrap:wrap;
+  opacity:0; animation:fadeUp .9s .85s forwards;
+}
+
+.btn-or {
+  display:inline-flex; align-items:center; gap:.65rem;
+  background:var(--or); color:var(--noir);
+  font-family:'DM Sans',sans-serif;
+  font-size:.58rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase;
+  padding:.95rem 2rem; transition:background .25s, transform .2s, box-shadow .25s;
+}
+.btn-or:hover {
+  background:var(--or-3); color:var(--noir);
+  transform:translateY(-2px);
+  box-shadow:0 8px 32px rgba(184,144,58,.2);
+}
+
+.btn-outline {
+  display:inline-flex; align-items:center; gap:.65rem;
+  border:1px solid var(--bord-2); color:var(--txt-m);
+  font-family:'DM Sans',sans-serif;
+  font-size:.58rem; font-weight:400; letter-spacing:.2em; text-transform:uppercase;
+  padding:.95rem 1.75rem; transition:border-color .25s, color .25s;
+}
+.btn-outline:hover { border-color:var(--or); color:var(--or-2); }
+
+.arr {
+  display:inline-block; width:22px; height:1px;
+  background:currentColor; position:relative;
+}
+.arr::after {
+  content:''; position:absolute; right:0; top:-3px;
+  width:6px; height:6px;
+  border-right:1px solid currentColor; border-top:1px solid currentColor;
+  transform:rotate(45deg);
+}
+
+/* HERO STATS */
+.hero-stats {
+  position:relative; z-index:1;
+  display:grid; grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--bord);
+  opacity:0; animation:fadeUp .9s 1s forwards;
+}
+.hs {
+  padding:1.75rem 0; border-right:1px solid var(--bord);
+}
+.hs:last-child { border-right:none; }
+.hs-n {
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.6rem; font-weight:300; color:var(--or-2);
+  line-height:1; margin-bottom:.3rem;
+}
+.hs-n sup { font-size:1.1rem; }
+.hs-l {
+  font-size:.54rem; letter-spacing:.16em; text-transform:uppercase; color:var(--txt-d);
+}
+
+/* ═══════════════ MARQUEE ═══════════════ */
+.mq-wrap {
+  background:var(--s1);
+  border-bottom:1px solid var(--bord);
+  padding:.9rem 0; overflow:hidden;
+}
+.mq-track {
+  display:flex; gap:3rem; width:max-content;
+  animation:marquee 38s linear infinite;
+}
+.mq-item {
+  display:inline-flex; align-items:center; gap:.7rem;
+  font-size:.54rem; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--txt-d); white-space:nowrap; flex-shrink:0;
+}
+.mq-item b { display:inline-block; width:3px; height:3px; border-radius:50%; background:var(--or); }
+
+/* ═══════════════ CONFIANCE SECTION ═══════════════ */
+#confiance {
+  background:var(--s1);
+  border-bottom:1px solid var(--bord);
+  padding:5.5rem 0;
+}
+
+.confiance-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:5rem; align-items:start;
+}
+
+.conf-left .sec-head { margin-bottom:2.5rem; }
+
+.conf-stats {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:1px; background:var(--bord);
+  border:1px solid var(--bord);
+  margin-bottom:2rem;
+}
+.conf-stat {
+  background:var(--s1);
+  padding:1.75rem 1.5rem;
+  transition:background .3s;
+}
+.conf-stat:hover { background:var(--s2); }
+.conf-stat-n {
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.8rem; font-weight:300; color:var(--or-2);
+  line-height:1; margin-bottom:.3rem;
+}
+.conf-stat-n sup { font-size:1.1rem; }
+.conf-stat-l {
+  font-size:.54rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--txt-d); margin-bottom:.35rem;
+}
+.conf-stat-d { font-size:.7rem; color:var(--txt-d); line-height:1.6; }
+
+.conf-right {}
+
+.conf-engagements { display:flex; flex-direction:column; gap:1px; background:var(--bord); }
+
+.engagement {
+  background:var(--s1);
+  display:grid; grid-template-columns:52px 1fr;
+  gap:1.25rem; align-items:start;
+  padding:1.5rem;
+  transition:background .3s;
+}
+.engagement:hover { background:var(--s2); }
+
+.eng-icon {
+  width:52px; height:52px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--or-dim); border:1px solid var(--bord);
+  font-size:1.15rem;
+}
+.eng-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem; color:var(--ivoire); margin-bottom:.25rem;
+}
+.eng-desc { font-size:.7rem; color:var(--txt-d); line-height:1.7; }
+
+.conf-origine {
+  margin-top:1.5rem;
+  background:var(--s2); border:1px solid var(--bord); padding:1.25rem 1.5rem;
+}
+.conf-origine-title {
+  font-size:.54rem; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--or); margin-bottom:.85rem;
+}
+.origine-list {
+  display:flex; flex-wrap:wrap; gap:.5rem;
+}
+.origine-tag {
+  font-size:.62rem; color:var(--txt-m);
+  background:var(--s3); border:1px solid var(--bord);
+  padding:4px 12px;
+}
+
+/* ═══════════════ SECTION HEADER ═══════════════ */
+.sec { padding:6rem 0; }
+.sec-sm { padding:4.5rem 0; }
+
+.sec-head { margin-bottom:3rem; }
+.sec-head .eyebrow { margin-bottom:1rem; display:flex; }
+.sec-head p { font-size:.84rem; max-width:520px; margin-top:.75rem; }
+
+/* ═══════════════ SERVICES ═══════════════ */
+#services { background:var(--noir-2); }
+
+.offres { display:flex; flex-direction:column; gap:2px; background:var(--bord); border:1px solid var(--bord); }
+
+/* ─── OFFRE COMMUNE ─── */
+.offre {
+  background:var(--noir-2);
+  transition:background .35s;
+  position:relative; overflow:hidden;
+}
+.offre::before {
+  content:''; position:absolute;
+  left:0; top:0; bottom:0; width:3px;
+  background:var(--or); transform:scaleY(0);
+  transform-origin:top; transition:transform .4s ease;
+}
+.offre:hover::before { transform:scaleY(1); }
+.offre:hover { background:var(--s1); }
+
+/* ─── OFFRE 1 Excellence ─── */
+.offre-ex {
+  display:grid; grid-template-columns:1fr 1fr; min-height:520px;
+}
+.offre-photo {
+  position:relative; overflow:hidden;
+}
+.offre-photo img {
+  width:100%; height:100%; object-fit:cover;
+  filter:brightness(.78) contrast(1.06) saturate(.92);
+  transition:transform .7s ease, filter .5s;
+}
+.offre:hover .offre-photo img { transform:scale(1.04); filter:brightness(.85) contrast(1.06); }
+
+.photo-overlay-r {
+  position:absolute; inset:0;
+  background:linear-gradient(to right, transparent 55%, var(--noir-2) 100%);
+}
+.photo-overlay-l {
+  position:absolute; inset:0;
+  background:linear-gradient(to left, transparent 55%, var(--noir-2) 100%);
+}
+
+.offre-body {
+  padding:3rem;
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+
+.offre-kicker {
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-size:.5rem; letter-spacing:.32em; text-transform:uppercase;
+  color:var(--or); margin-bottom:1.25rem;
+}
+.offre-kicker::before {
+  content:''; display:inline-block;
+  width:4px; height:4px; border-radius:50%; background:var(--or);
+}
+
+.offre-title { margin-bottom:.65rem; }
+
+.offre-pitch {
+  font-size:.8rem; color:var(--txt-m); line-height:1.8;
+  margin-bottom:1.5rem; max-width:380px;
+}
+
+/* Ce qui est inclus */
+.offre-inclus { margin-bottom:2rem; }
+.offre-inclus-head {
+  font-size:.52rem; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--txt-d); margin-bottom:.85rem;
+  padding-bottom:.5rem; border-bottom:1px solid var(--bord);
+}
+.inclus-list { display:flex; flex-direction:column; gap:.5rem; }
+.inclus-item {
+  display:flex; align-items:flex-start; gap:.65rem;
+  font-size:.72rem; color:var(--txt-m); line-height:1.5;
+}
+.inclus-check {
+  width:16px; height:16px; border-radius:50%;
+  background:var(--or-dim); border:1px solid var(--bord-2);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0; margin-top:1px;
+  font-size:.55rem; color:var(--or);
+}
+
+/* Ce qui n'est pas inclus */
+.offre-exclus {
+  background:var(--s2); border:1px solid var(--bord);
+  padding:.85rem 1rem; margin-bottom:1.5rem;
+  font-size:.66rem; color:var(--txt-d); line-height:1.6;
+}
+.offre-exclus strong { color:var(--txt-m); font-weight:400; }
+
+/* Délais */
+.offre-delais {
+  display:flex; gap:1.25rem; flex-wrap:wrap; margin-bottom:1.75rem;
+}
+.delai {
+  background:var(--s2); border:1px solid var(--bord);
+  padding:.6rem .85rem;
+  font-size:.62rem; color:var(--txt-m);
+}
+.delai strong { color:var(--or); font-weight:400; display:block; font-size:.72rem; }
+
+.offre-footer {
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:1rem;
+  padding-top:1.5rem; border-top:1px solid var(--bord);
+}
+.offre-price-n {
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem; font-weight:300; color:var(--or-2); line-height:1;
+}
+.offre-price-l {
+  font-size:.54rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--txt-d); margin-top:3px;
+}
+
+/* ─── OFFRE 2 Gestion ─── */
+.offre-ge {
+  display:grid; grid-template-columns:1fr 1fr; min-height:520px;
+}
+.offre-ge .offre-body { order:-1; }
+
+.rentabilite {
+  display:flex; flex-wrap:wrap; gap:.45rem; margin-bottom:1.25rem;
+}
+.rbadge {
+  font-size:.54rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--or); background:var(--or-dim);
+  border:1px solid var(--bord); padding:3px 10px;
+}
+
+/* ─── OFFRE 3 Mobilité ─── */
+.offre-mob { padding:3rem; }
+
+.mob-header {
+  display:flex; justify-content:space-between; align-items:flex-start;
+  margin-bottom:2.5rem; flex-wrap:wrap; gap:1.5rem;
+}
+.mob-header-left { max-width:480px; }
+
+.mob-cats {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:2px; background:var(--bord); margin-bottom:1.75rem;
+}
+.mob-cat { background:var(--s1); overflow:hidden; transition:background .3s; }
+.mob-cat:hover { background:var(--s2); }
+.mob-cat img {
+  width:100%; height:190px; object-fit:cover;
+  filter:brightness(.78) saturate(.9);
+  transition:transform .6s, filter .4s;
+}
+.mob-cat:hover img { transform:scale(1.04); filter:brightness(.88); }
+.mob-cat-body { padding:1.35rem; }
+.mob-cat-num {
+  font-size:.5rem; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--or); margin-bottom:.4rem;
+}
+.mob-cat-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem; color:var(--ivoire); margin-bottom:.35rem;
+}
+.mob-cat-desc { font-size:.67rem; color:var(--txt-d); line-height:1.65; }
+
+.mob-feats {
+  display:flex; flex-wrap:wrap; gap:.6rem;
+}
+.mob-feat {
+  display:flex; align-items:center; gap:.45rem;
+  font-size:.62rem; color:var(--txt-m);
+  background:var(--s2); border:1px solid var(--bord);
+  padding:.35rem .85rem;
+}
+.mob-feat::before {
+  content:''; display:inline-block;
+  width:4px; height:1px; background:var(--or);
+}
+
+/* ═══════════════ PROCESSUS DÉTAILLÉ ═══════════════ */
+#processus { background:var(--s1); }
+
+.process-timeline {
+  display:flex; flex-direction:column; gap:0;
+  border:1px solid var(--bord); overflow:hidden;
+  margin-top:3rem;
+}
+
+.pstep {
+  display:grid; grid-template-columns:180px 1fr;
+  border-bottom:1px solid var(--bord);
+  transition:background .3s;
+}
+.pstep:last-child { border-bottom:none; }
+.pstep:hover { background:var(--s2); }
+
+.pstep-left {
+  background:var(--s2);
+  border-right:1px solid var(--bord);
+  padding:2rem 1.75rem;
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.pstep-num {
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.8rem; font-weight:300; color:var(--or-dim);
+  line-height:1;
+}
+.pstep-phase {
+  font-size:.52rem; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--or);
+}
+.pstep-delai {
+  margin-top:.75rem;
+  font-size:.62rem; color:var(--txt-d);
+  background:var(--s3); border:1px solid var(--bord);
+  padding:.3rem .75rem; display:inline-block;
+}
+
+.pstep-right {
+  padding:2rem 2.25rem;
+}
+.pstep-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem; color:var(--ivoire); margin-bottom:.6rem;
+}
+.pstep-desc { font-size:.75rem; color:var(--txt-m); margin-bottom:1rem; line-height:1.8; }
+
+.pstep-livrable {
+  display:flex; flex-direction:column; gap:.4rem;
+}
+.livrable {
+  display:flex; align-items:center; gap:.6rem;
+  font-size:.68rem; color:var(--txt-m);
+}
+.livrable::before {
+  content:''; width:5px; height:1px;
+  background:var(--or); display:inline-block; flex-shrink:0;
+}
+.livrable strong { color:var(--ivoire-2); font-weight:400; }
+
+/* ═══════════════ PREUVES ═══════════════ */
+#preuves { background:var(--noir-2); }
+
+.preuves-cols {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:1.5rem; margin:0 auto;
+  width:100%;
+}
+
+/* Stat visuals */
+.proof-stats {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:1px; background:var(--bord);
+  border:1px solid var(--bord);
+}
+.proof-stat {
+  background:var(--s1); padding:1.75rem 1.5rem;
+  transition:background .3s;
+}
+.proof-stat:hover { background:var(--s2); }
+.proof-stat-n {
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.8rem; font-weight:300; color:var(--or-2);
+  line-height:1; margin-bottom:.3rem;
+}
+.proof-stat-n sup { font-size:1.1rem; }
+.proof-stat-l {
+  font-size:.52rem; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--txt-d); margin-bottom:.3rem;
+}
+.proof-stat-d { font-size:.68rem; color:var(--txt-d); line-height:1.6; }
+
+/* Bar chart */
+.chart-card {
+  background:var(--s1); border:1px solid var(--bord); padding:2rem;
+  transition:border-color .25s;
+}
+.chart-card:hover { border-color:var(--bord-2); }
+.chart-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem; color:var(--ivoire); margin-bottom:.2rem;
+}
+.chart-sub {
+  font-size:.54rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--txt-d); margin-bottom:1.5rem;
+}
+.bar-chart { display:flex; flex-direction:column; gap:.8rem; }
+.bar-row {
+  display:grid; grid-template-columns:95px 1fr 50px;
+  align-items:center; gap:.7rem;
+}
+.bar-lbl { font-size:.62rem; color:var(--txt-d); text-align:right; }
+.bar-track { height:4px; background:rgba(255,255,255,.05); border-radius:2px; overflow:hidden; }
+.bar-fill {
+  height:100%;
+  background:linear-gradient(90deg, var(--or), var(--or-3));
+  border-radius:2px; width:0;
+  transition:width 1.6s cubic-bezier(.4,0,.2,1);
+}
+.bar-val { font-size:.62rem; color:var(--or); font-weight:500; }
+
+/* Growth chart */
+.growth-card {
+  background:var(--s1); border:1px solid var(--bord);
+  padding:2rem; grid-column:1/-1;
+  transition:border-color .25s;
+}
+.growth-card:hover { border-color:var(--bord-2); }
+
+.growth-svg { width:100%; height:140px; }
+
+/* Donut */
+.donut-card {
+  background:var(--s1); border:1px solid var(--bord); padding:2rem;
+  transition:border-color .25s;
+}
+.donut-card:hover { border-color:var(--bord-2); }
+.donut-wrap { display:flex; align-items:center; gap:1.75rem; }
+.donut-legend { display:flex; flex-direction:column; gap:.65rem; flex:1; }
+.legend-row { display:flex; align-items:center; gap:.55rem; font-size:.65rem; color:var(--txt-m); }
+.legend-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+.legend-pct { margin-left:auto; color:var(--or); }
+
+/* Pays */
+.pays-card {
+  background:var(--s1); border:1px solid var(--bord); padding:2rem;
+}
+.pays-title {
+  font-size:.54rem; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--or); margin-bottom:1rem;
+}
+.pays-grid { display:flex; flex-wrap:wrap; gap:.45rem; }
+.pays-badge {
+  font-size:.64rem; color:var(--txt-m);
+  background:var(--s2); border:1px solid var(--bord);
+  padding:.3rem .85rem;
+}
+
+/* Visites */
+.visites-card {
+  background:var(--s1); border:1px solid var(--bord); padding:2rem;
+}
+.visites-num {
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.5rem; font-weight:300; color:var(--or-2);
+  line-height:1; margin-bottom:.4rem;
+}
+.visites-label {
+  font-size:.54rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--txt-d); margin-bottom:.75rem;
+}
+.visites-desc { font-size:.72rem; color:var(--txt-d); line-height:1.7; }
+
+/* ═══════════════ TÉMOIGNAGES ═══════════════ */
+#temoignages { background:var(--s1); }
+
+.t-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:1px; background:var(--bord);
+  border:1px solid var(--bord); margin-top:3rem;
+}
+.tcard {
+  background:var(--s1); padding:2rem;
+  position:relative; overflow:hidden;
+  transition:background .3s;
+}
+.tcard:hover { background:var(--s2); }
+
+.tcard-badge {
+  position:absolute; top:1.25rem; right:1.25rem;
+  font-size:.48rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--or); background:var(--or-dim);
+  border:1px solid var(--bord); padding:2px 8px;
+}
+.tcard-stars {
+  color:var(--or); font-size:.8rem; letter-spacing:.08em; margin-bottom:1.1rem;
+}
+.tcard-text {
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic; font-size:1.02rem; color:var(--ivoire-2);
+  line-height:1.65; margin-bottom:1.5rem;
+}
+.tcard-author {
+  display:flex; align-items:center; gap:.7rem;
+  padding-top:1.1rem; border-top:1px solid var(--bord);
+}
+.tcard-av {
+  width:34px; height:34px; border-radius:50%;
+  background:var(--or-dim); border:1px solid var(--bord-2);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Cormorant Garamond',serif; font-size:.95rem; color:var(--or);
+  flex-shrink:0;
+}
+.tcard-name { font-size:.72rem; color:var(--ivoire); }
+.tcard-loc  { font-size:.6rem; color:var(--txt-d); margin-top:1px; }
+
+/* ═══════════════ COMPARAISON ═══════════════ */
+#comparaison { background:var(--noir-2); }
+
+.comp-layout {
+  display:grid; grid-template-columns:1.1fr 1fr;
+  gap:4.5rem; align-items:start; margin-top:3rem;
+}
+
+.comp-table { width:100%; border-collapse:collapse; }
+.comp-table th {
+  font-size:.55rem; letter-spacing:.18em; text-transform:uppercase;
+  padding:.8rem 1rem; text-align:left; font-weight:400;
+  background:var(--s1); border-bottom:1px solid var(--bord); color:var(--txt-d);
+}
+.comp-table th.ap-col { color:var(--or); background:var(--or-dim); }
+.comp-table td {
+  padding:.72rem 1rem; font-size:.7rem; color:var(--txt-d);
+  border-bottom:1px solid rgba(255,255,255,.035);
+}
+.comp-table td.ap  { background:rgba(184,144,58,.03); color:var(--or); }
+.comp-table td.yes { color:var(--vert); }
+.comp-table td.no  { color:#8A4848; }
+
+.comp-right {}
+
+.comp-statement {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.4rem,2.2vw,1.9rem);
+  font-style:italic; color:var(--ivoire);
+  line-height:1.55; margin-bottom:2rem;
+  padding-left:1.5rem; border-left:2px solid var(--bord-2);
+}
+.comp-statement em { color:var(--or-2); font-style:normal; }
+
+.trust-list { display:flex; flex-direction:column; gap:.7rem; }
+.trust-item {
+  display:flex; align-items:flex-start; gap:.7rem;
+  font-size:.7rem; color:var(--txt-m); line-height:1.6;
+}
+.trust-check {
+  width:18px; height:18px; border-radius:50%; flex-shrink:0; margin-top:1px;
+  background:var(--or-dim); border:1px solid var(--bord-2);
+  display:flex; align-items:center; justify-content:center;
+  font-size:.5rem; color:var(--or);
+}
+
+/* ═══════════════ CTA ═══════════════ */
+#cta {
+  background:var(--s1);
+  border-top:1px solid var(--bord);
+  padding:7rem 2.5rem; text-align:center;
+  position:relative; overflow:hidden;
+}
+#cta::before {
+  content:''; position:absolute;
+  top:-80px; left:50%; transform:translateX(-50%);
+  width:500px; height:300px;
+  background:radial-gradient(ellipse, rgba(184,144,58,.07), transparent 70%);
+  pointer-events:none;
+}
+
+.cta-inner { max-width:620px; margin:0 auto; position:relative; z-index:1; }
+
+.cta-kicker {
+  font-size:.54rem; letter-spacing:.42em; text-transform:uppercase;
+  color:var(--or); margin-bottom:1.25rem;
+}
+.cta-h2 { margin-bottom:1rem; }
+.cta-h2 em { font-style:italic; color:var(--or-2); }
+
+.cta-p {
+  font-size:.84rem; color:var(--txt-m); line-height:1.85; margin-bottom:2.5rem;
+}
+
+.cta-options {
+  display:flex; flex-wrap:wrap; gap:.75rem; justify-content:center; margin-bottom:2.25rem;
+}
+
+.cta-trust {
+  display:flex; flex-wrap:wrap; gap:1.75rem; justify-content:center;
+}
+.cta-trust-item {
+  display:flex; align-items:center; gap:.45rem;
+  font-size:.6rem; color:var(--txt-d);
+}
+.cta-trust-dot { width:3px; height:3px; border-radius:50%; background:var(--or); }
+
+/* ═══════════════ CONTACT INFO BAND ═══════════════ */
+.contact-band {
+  background:var(--s2); border-top:1px solid var(--bord);
+  padding:2.5rem;
+}
+.contact-band-inner {
+  max-width:1160px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:2rem;
+}
+.cb-item { display:flex; flex-direction:column; gap:.35rem; }
+.cb-label {
+  font-size:.5rem; letter-spacing:.3em; text-transform:uppercase; color:var(--or);
+}
+.cb-value { font-size:.74rem; color:var(--txt-m); }
+.cb-value a { color:var(--txt-m); }
+.cb-value a:hover { color:var(--or-2); }
+
+/* ═══════════════ FOOTER ═══════════════ */
+footer {
+  background:var(--noir);
+  border-top:1px solid var(--bord);
+  padding:4rem 2.5rem 2.5rem;
+}
+.footer-grid {
+  max-width:1160px; margin:0 auto 3rem;
+  display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem;
+}
+.footer-brand-n {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--or-2); margin-bottom:.25rem;
+}
+.footer-brand-t {
+  font-size:.44rem; letter-spacing:.44em; text-transform:uppercase;
+  color:var(--txt-d); margin-bottom:1rem;
+}
+.footer-brand-d { font-size:.7rem; color:var(--txt-d); line-height:1.85; }
+.footer-col-h {
+  font-size:.52rem; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--or); margin-bottom:1.1rem;
+}
+.footer-col ul { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
+.footer-col a { font-size:.7rem; color:var(--txt-d); }
+.footer-col a:hover { color:var(--or-2); }
+.footer-bot {
+  max-width:1160px; margin:0 auto;
+  display:flex; justify-content:space-between; align-items:center;
+  padding-top:1.75rem; border-top:1px solid var(--bord);
+  flex-wrap:wrap; gap:1rem;
+}
+.footer-copy { font-size:.58rem; color:var(--txt-d); letter-spacing:.08em; }
+.footer-socials { display:flex; gap:1.25rem; }
+.footer-social { font-size:.56rem; letter-spacing:.18em; text-transform:uppercase; color:var(--txt-d); }
+.footer-social:hover { color:var(--or-2); }
+
+/* ═══════════════ WHATSAPP ═══════════════ */
+.wa-float {
+  position:fixed; bottom:1.75rem; right:1.75rem; z-index:200;
+  display:flex; align-items:center; gap:.55rem;
+  background:#1A5C1F; color:#fff;
+  padding:.78rem 1.35rem;
+  font-family:'DM Sans',sans-serif;
+  font-size:.56rem; font-weight:500; letter-spacing:.16em; text-transform:uppercase;
+  box-shadow:0 6px 28px rgba(0,0,0,.45);
+  transition:background .25s, transform .25s;
+  animation:waPulse 3.5s ease-in-out infinite;
+}
+.wa-float:hover { background:#2E7A34; color:#fff; transform:translateY(-2px); }
+.wa-float .ico { font-size:1.05rem; }
+
+/* ═══════════════ ANIMATIONS ═══════════════ */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes fadeIn  { from { opacity:0; } to { opacity:1; } }
+@keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+@keyframes waPulse {
+  0%,100% { box-shadow:0 6px 28px rgba(0,0,0,.45), 0 0 0 0 rgba(26,92,31,.4); }
+  50%     { box-shadow:0 6px 28px rgba(0,0,0,.45), 0 0 0 12px rgba(26,92,31,0); }
+}
+
+/* ═══════════ ACCORDÉON PROCESSUS ═══════════ */
+.acc-steps { border:1px solid var(--bord); overflow:hidden; margin-top:3rem; }
+.acc-step { border-bottom:1px solid var(--bord); cursor:pointer; transition:background .25s; }
+.acc-step:last-child { border-bottom:none; }
+.acc-step:hover { background:var(--s2); }
+.acc-step.active { background:var(--s1); }
+.acc-header { display:flex; align-items:center; justify-content:space-between; padding:1.5rem 2rem; gap:1rem; user-select:none; }
+.acc-left { display:flex; align-items:center; gap:1.5rem; flex:1; }
+.acc-num { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; color:var(--bord-2); line-height:1; flex-shrink:0; transition:color .25s; }
+.acc-step.active .acc-num, .acc-step:hover .acc-num { color:var(--or); }
+.acc-phase { font-size:.52rem; letter-spacing:.3em; text-transform:uppercase; color:var(--or); margin-bottom:.25rem; }
+.acc-title { font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--ivoire); font-weight:300; line-height:1.3; }
+.acc-meta { display:flex; flex-direction:column; align-items:flex-end; gap:.35rem; flex-shrink:0; }
+.acc-delai { font-size:.58rem; letter-spacing:.14em; text-transform:uppercase; color:var(--txt-d); background:var(--s2); border:1px solid var(--bord); padding:.25rem .65rem; }
+.acc-step.active .acc-delai { color:var(--or); border-color:var(--bord-2); }
+.acc-arrow { font-size:.9rem; color:var(--txt-d); transition:transform .3s, color .25s; }
+.acc-step.active .acc-arrow { transform:rotate(180deg); color:var(--or); }
+.acc-body { max-height:0; overflow:hidden; transition:max-height .4s cubic-bezier(.4,0,.2,1), padding .3s; padding:0 2rem 0 calc(2rem + 1.5rem + 3.5rem); }
+.acc-step.active .acc-body { max-height:400px; padding:0 2rem 1.75rem calc(2rem + 1.5rem + 3.5rem); border-top:1px solid var(--bord); }
+.acc-body p { font-size:.76rem; color:var(--txt-m); line-height:1.85; margin-bottom:1.1rem; }
+.acc-livrables { display:flex; flex-direction:column; gap:.4rem; }
+.acc-livrable { display:flex; align-items:flex-start; gap:.6rem; font-size:.7rem; color:var(--txt-d); line-height:1.6; }
+.acc-livrable::before { content:''; display:inline-block; width:5px; height:1px; background:var(--or); margin-top:.75rem; flex-shrink:0; }
+
+/* ═══════════════ RESPONSIVE ═══════════════ */
+@media (max-width:1024px) {
+  .container { padding:0 1.75rem; }
+  #hero       { padding:0 1.75rem; }
+  #nav        { padding:1.4rem 1.75rem; }
+  #nav.stuck  { padding:.9rem 1.75rem; }
+  .top-bar    { padding:.55rem 1.75rem; }
+  .nav-links  { display:none; }
+  .hero-stats { grid-template-columns:repeat(2,1fr); }
+  .confiance-grid { grid-template-columns:1fr; gap:3rem; }
+  .offre-ex, .offre-ge { grid-template-columns:1fr; min-height:auto; }
+  .offre-ge .offre-body { order:0; }
+  .offre-photo { height:260px; }
+  .photo-overlay-r, .photo-overlay-l {
+    background:linear-gradient(to top, var(--noir-2) 25%, transparent 100%);
+  }
+  .mob-cats { grid-template-columns:1fr; }
+  .pstep { grid-template-columns:120px 1fr; }
+  .preuves-cols { grid-template-columns:1fr; }
+  .comp-layout { grid-template-columns:1fr; gap:3rem; }
+  .footer-grid { grid-template-columns:1fr 1fr; gap:2rem; }
+  .contact-band-inner { grid-template-columns:1fr 1fr; gap:1.5rem; }
+  .t-grid { grid-template-columns:1fr; }
+}
+
+@media (max-width:640px) {
+  #hero { padding:0 1.25rem; }
+  .container { padding:0 1.25rem; }
+  .top-bar { display:none; }
+  .hero-stats { grid-template-columns:1fr 1fr; }
+  .conf-stats, .proof-stats { grid-template-columns:1fr 1fr; }
+  .pstep { grid-template-columns:1fr; }
+  .pstep-left { border-right:none; border-bottom:1px solid var(--bord); }
+  .footer-grid { grid-template-columns:1fr; }
+  .contact-band-inner { grid-template-columns:1fr; }
+  .cta-options { flex-direction:column; align-items:center; }
+  .mob-cats { grid-template-columns:1fr; }
+  .wa-float .wa-label { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/33769335116?text=Bonjour%20Alg%C3%A9rie%20Prestige%2C%20je%20souhaite%20d%C3%A9marrer%20mon%20projet." class="wa-float" target="_blank" rel="noopener">
+  <span class="ico">💬</span>
+  <span class="wa-label">Démarrer mon projet</span>
+</a>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-contact">
+    <div class="top-bar-item">
+      <span class="top-bar-dot"></span>
+      <a href="https://wa.me/33769335116" target="_blank">WhatsApp : +33 7 69 33 51 16</a>
+    </div>
+    <div class="top-bar-item">
+      <span class="top-bar-dot"></span>
+      <a href="mailto:contact@algerieprestige.com">contact@algerieprestige.com</a>
+    </div>
+    <div class="top-bar-item">
+      <span class="top-bar-dot"></span>
+      Hydra, Alger, Algérie
+    </div>
+  </div>
+  <div class="top-bar-right"><span style="color:var(--or);letter-spacing:.1em">Conciergerie · Pas une agence immobilière</span> &nbsp;·&nbsp; Disponible 7j/7</div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">
+    <span class="nav-logo-name">Algérie Prestige</span>
+    <span class="nav-logo-tag">Conciergerie · Pas une agence immobilière</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Nos offres</a></li>
+    <li><a href="#processus">Comment ça marche</a></li>
+    <li><a href="#preuves">Résultats</a></li>
+    <li><a href="#temoignages">Témoignages</a></li>
+  </ul>
+  <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20d%C3%A9marrer%20mon%20projet%20avec%20Alg%C3%A9rie%20Prestige." class="nav-cta" target="_blank">Démarrer mon projet</a>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-content">
+    <div class="eyebrow hero-tag">
+      Basé à Alger · Depuis août 2025 · 130 familles accompagnées
+    </div>
+
+    <h1 class="hero-h1">
+      Votre patrimoine<br>
+      en Algérie,<br>
+      <em>géré avec l'excellence<br>que vous méritez.</em>
+    </h1>
+
+    <p class="hero-p">
+      Achat immobilier, gestion locative, mobilité : nous intervenons à votre place sur le terrain en Algérie, avec un processus contractuel strict et un suivi transparent à chaque étape.
+    </p>
+
+    <div class="hero-promise">
+      <div class="hero-promise-item">Vous évitez les déplacements inutiles et coûteux</div>
+      <div class="hero-promise-item">Vous gagnez du temps et de l'argent</div>
+      <div class="hero-promise-item">Chaque étape est vérifiée avant validation</div>
+      <div class="hero-promise-item">Vous recevez un rapport complet sous 24h</div>
+    </div>
+
+    <div class="hero-btns">
+      <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20d%C3%A9marrer%20mon%20projet%20avec%20Alg%C3%A9rie%20Prestige." class="btn-or" target="_blank">
+        Démarrer mon projet
+        <span class="arr"></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hs">
+      <div class="hs-n"><span class="counter" data-target="130">0</span><sup>+</sup></div>
+      <div class="hs-l">Familles accompagnées</div>
+    </div>
+    <div class="hs">
+      <div class="hs-n"><span class="counter" data-target="875">0</span><sup>K€</sup></div>
+      <div class="hs-l">Économisés en négociation</div>
+    </div>
+    <div class="hs">
+      <div class="hs-n"><span class="counter" data-target="100">0</span><sup>%</sup></div>
+      <div class="hs-l">Transactions sécurisées</div>
+    </div>
+    <div class="hs">
+      <div class="hs-n">0</div>
+      <div class="hs-l">Litige depuis août 2025</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq-wrap">
+  <div class="mq-track">
+    <span class="mq-item"><b></b>Contrat signé avant toute action</span>
+    <span class="mq-item"><b></b>Triple vérification juridique</span>
+    <span class="mq-item"><b></b>Votre notaire, pas celui du vendeur</span>
+    <span class="mq-item"><b></b>Visites déléguées filmées en 4K</span>
+    <span class="mq-item"><b></b>130 familles depuis août 2025</span>
+    <span class="mq-item"><b></b>Clients depuis France, Canada, Belgique, Suisse</span>
+    <span class="mq-item"><b></b>Rapport sous 24h</span>
+    <span class="mq-item"><b></b>Aucun litige à ce jour</span>
+    <span class="mq-item"><b></b>Contrat signé avant toute action</span>
+    <span class="mq-item"><b></b>Triple vérification juridique</span>
+    <span class="mq-item"><b></b>Votre notaire, pas celui du vendeur</span>
+    <span class="mq-item"><b></b>Visites déléguées filmées en 4K</span>
+    <span class="mq-item"><b></b>130 familles depuis août 2025</span>
+    <span class="mq-item"><b></b>Clients depuis France, Canada, Belgique, Suisse</span>
+    <span class="mq-item"><b></b>Rapport sous 24h</span>
+    <span class="mq-item"><b></b>Aucun litige à ce jour</span>
+  </div>
+</div>
+
+<!-- ═══════════ SERVICES ═══════════ -->
+<section id="services" class="sec" style="padding-bottom:2rem;">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Nos trois offres</div>
+      <h2>Des services pensés<br><em>pour la diaspora.</em></h2>
+      <p>Chaque offre est conçue pour répondre à un besoin précis. Tout commence par un appel de 20 minutes, sans engagement.</p>
+    </div>
+
+    <div class="offres reveal">
+
+      <!-- ── OFFRE 1 : EXCELLENCE ── -->
+      <div class="offre" style="padding:3rem;">
+        <div>
+            <div class="offre-kicker">Offre 01</div>
+            <h3 class="offre-title">Offre Excellence</h3>
+            <p class="offre-pitch">
+              Vous souhaitez acquérir un bien en Algérie depuis l'étranger. Vous voulez une transaction sécurisée, un accompagnement rigoureux et un interlocuteur de confiance sur place. C'est exactement ce que nous faisons.
+            </p>
+
+            <div class="offre-inclus">
+              <div class="offre-inclus-head">Ce que vous obtenez concrètement</div>
+              <div class="inclus-list">
+                <div class="inclus-item">
+                  <span class="inclus-check">✓</span>
+                  Recherche de biens selon vos critères précis
+                </div>
+                <div class="inclus-item">
+                  <span class="inclus-check">✓</span>
+                  Triple vérification juridique avant toute visite
+                </div>
+                <div class="inclus-item">
+                  <span class="inclus-check">✓</span>
+                  Visites déléguées filmées en 4K avec compte rendu sous 24h
+                </div>
+                <div class="inclus-item">
+                  <span class="inclus-check">✓</span>
+                  Négociation directe avec le vendeur
+                </div>
+                <div class="inclus-item">
+                  <span class="inclus-check">✓</span>
+                  Suivi notarial complet avec votre propre notaire
+                </div>
+                <div class="inclus-item">
+                  <span class="inclus-check">✓</span>
+                  Mises à jour WhatsApp après chaque action
+                </div>
+                <div class="inclus-item">
+                  <span class="inclus-check">✓</span>
+                  Rapport hebdomadaire d'avancement par écrit
+                </div>
+              </div>
+            </div>
+
+            <div class="offre-exclus">
+              <strong>Non inclus :</strong> frais de notaire, taxes et droits d'enregistrement. Ces montants sont à votre charge et varient selon le bien.
+            </div>
+
+            <div class="offre-delais">
+              <div class="delai"><strong>20 min</strong>Appel de qualification</div>
+              <div class="delai"><strong>24h</strong>Rapport après visite</div>
+              <div class="delai"><strong>60 à 90 j</strong>Délai moyen d'acquisition</div>
+            </div>
+          </div>
+          <div class="offre-footer">
+            <div>
+              <div class="offre-price-n">1 000€</div>
+              <div class="offre-price-l">par dossier · tout inclus</div>
+            </div>
+            <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20l%27Offre%20Excellence%20%281%20000%E2%82%AC%29%20pour%20un%20achat%20immobilier%20en%20Alg%C3%A9rie." class="btn-or" target="_blank">
+              Démarrer ce projet
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── OFFRE 2 : GESTION ── -->
+      <div class="offre" style="padding:3rem;">
+        <div>
+            <div class="offre-kicker">Offre 02</div>
+            <h3 class="offre-title">Gestion Immobilière</h3>
+            <p class="offre-pitch">
+              Vous avez un bien en Algérie et vous vivez à l'étranger. Vous ne voulez pas le laisser vide, mais vous ne pouvez pas le gérer à distance seul. Nous le faisons travailler pour vous.
+            </p>
+
+            <div class="rentabilite">
+              <span class="rbadge">Airbnb</span>
+              <span class="rbadge">Booking</span>
+              <span class="rbadge">Location courte durée</span>
+              <span class="rbadge">Reversement mensuel</span>
+            </div>
+
+            <div class="offre-inclus">
+              <div class="offre-inclus-head">Ce que vous obtenez chaque mois</div>
+              <div class="inclus-list">
+                <div class="inclus-item">
+                  <span class="inclus-check">✓</span>
+                  Création et optimisation de vos annonces Airbnb et Booking
+                </div>
+                <div class="inclus-item">
+                  <span class="inclus-check">✓</span>
+                  Accueil, suivi et gestion complète des voyageurs
+                </div>
+                <div class="inclus-item">
+                  <span class="inclus-check">✓</span>
+                  Coordination de la maintenance et de l'entretien
+                </div>
+                <div class="inclus-item">
+                  <span class="inclus-check">✓</span>
+                  Reversement mensuel sécurisé de vos revenus
+                </div>
+                <div class="inclus-item">
+                  <span class="inclus-check">✓</span>
+                  Rapport de performance détaillé chaque mois
+                </div>
+              </div>
+            </div>
+
+            <div class="offre-exclus">
+              <strong>Non inclus :</strong> travaux de rénovation, achats de mobilier et charges de copropriété. Ces frais restent à votre charge.
+            </div>
+
+            <div class="offre-delais">
+              <div class="delai"><strong>7 à 14 j</strong>Mise en ligne du bien</div>
+              <div class="delai"><strong>Mensuel</strong>Rapport et reversement</div>
+              <div class="delai"><strong>24h</strong>Réponse aux urgences</div>
+            </div>
+          </div>
+          <div class="offre-footer">
+            <div>
+              <div class="offre-price-n">1 000€ <span style="font-size:.95rem;color:var(--txt-d)">+ 20%</span></div>
+              <div class="offre-price-l">onboarding unique · puis 20% de commission mensuelle</div>
+            </div>
+            <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20confier%20mon%20bien%20en%20gestion%20locative." class="btn-or" target="_blank">
+              Confier mon bien
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── OFFRE 3 : MOBILITÉ ── -->
+      <div class="offre offre-mob">
+        <div class="mob-header">
+          <div class="mob-header-left">
+            <div class="offre-kicker">Offre 03</div>
+            <h3 class="offre-title">Mobilité Premium</h3>
+            <p class="offre-pitch" style="max-width:440px;margin-bottom:0">
+              Un véhicule vous attend à votre hôtel ou domicile dès votre arrivée en Algérie. Sans négociation, sans improvisation. Vous posez vos bagages, vous prenez le volant.
+            </p>
+          </div>
+          <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20v%C3%A9hicule%20avec%20Alg%C3%A9rie%20Prestige." class="btn-or" target="_blank" style="align-self:flex-start">
+            Réserver un véhicule
+          </a>
+        </div>
+
+        <div class="mob-cats">
+          <div class="mob-cat">
+            <div class="mob-cat-body" style="padding:2rem 1.5rem;">
+              <div class="mob-cat-num">Catégorie 01</div>
+              <div class="mob-cat-title">Citadines</div>
+              <div class="mob-cat-desc">Idéales pour se déplacer en ville. Confortables et économiques pour vos trajets quotidiens à Alger et dans les grandes agglomérations.</div>
+            </div>
+          </div>
+          <div class="mob-cat">
+            <div class="mob-cat-body" style="padding:2rem 1.5rem;">
+              <div class="mob-cat-num">Catégorie 02</div>
+              <div class="mob-cat-title">SUV</div>
+              <div class="mob-cat-desc">Pour les familles et les longs trajets. Spacieux, puissants, adaptés aux routes algériennes.</div>
+            </div>
+          </div>
+          <div class="mob-cat">
+            <div class="mob-cat-body" style="padding:2rem 1.5rem;">
+              <div class="mob-cat-num">Catégorie 03</div>
+              <div class="mob-cat-title">Berlines avec chauffeur</div>
+              <div class="mob-cat-desc">Pour ceux qui ne veulent rien gérer. Chauffeur dédié, prise en charge à votre hôtel ou domicile, disponibilité à la journée ou à la semaine.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mob-feats">
+          <div class="mob-feat">Livraison à votre hôtel ou domicile</div>
+          <div class="mob-feat">Contrat de location sécurisé</div>
+          <div class="mob-feat">Véhicules récents et assurés</div>
+          <div class="mob-feat">Assistance disponible 24h/24</div>
+          <div class="mob-feat">Option chauffeur privé</div>
+          <div class="mob-feat">Tarifs transparents, sans surprise</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PREUVES ═══════════ -->
+<section id="preuves" class="sec" style="background:var(--noir-2);border-bottom:1px solid var(--bord);padding:2rem 0 5rem;">
+  <div class="container">
+
+    <div style="text-align:center;margin-bottom:2rem;" class="reveal">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:.75rem;">Chiffres réels · Depuis août 2025</div>
+      <h2>Des résultats mesurés.<br><em>Rien n'est inventé.</em></h2>
+    </div>
+
+    <div class="preuves-cols">
+
+      <div class="chart-card reveal">
+        <div class="chart-title">Économies réalisées par type de bien</div>
+        <div class="chart-sub">Négociation vs prix affiché · Moyennes constatées</div>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-lbl">Appartements</div>
+            <div class="bar-track"><div class="bar-fill" data-w="78"></div></div>
+            <div class="bar-val">-12,4%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-lbl">Villas</div>
+            <div class="bar-track"><div class="bar-fill" data-w="65"></div></div>
+            <div class="bar-val">-9,8%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-lbl">Terrains</div>
+            <div class="bar-track"><div class="bar-fill" data-w="88"></div></div>
+            <div class="bar-val">-15,1%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-lbl">Commerciaux</div>
+            <div class="bar-track"><div class="bar-fill" data-w="55"></div></div>
+            <div class="bar-val">-7,2%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="donut-card reveal">
+        <div class="chart-title">Répartition des prestations</div>
+        <div class="chart-sub">Tous services · Depuis août 2025</div>
+        <div class="donut-wrap">
+          <svg width="120" height="120" viewBox="0 0 120 120" style="flex-shrink:0">
+            <circle cx="60" cy="60" r="46" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="15"/>
+            <circle cx="60" cy="60" r="46" fill="none" stroke="#B8903A" stroke-width="15"
+              stroke-dasharray="200 89" stroke-dashoffset="289"
+              transform="rotate(-90 60 60)" class="darc" style="transition:stroke-dashoffset 2s ease"/>
+            <circle cx="60" cy="60" r="46" fill="none" stroke="#6E5420" stroke-width="15"
+              stroke-dasharray="52 237" stroke-dashoffset="89"
+              transform="rotate(-90 60 60)" class="darc" style="transition:stroke-dashoffset 2s ease .25s"/>
+            <circle cx="60" cy="60" r="46" fill="none" stroke="#355248" stroke-width="15"
+              stroke-dasharray="37 252" stroke-dashoffset="37"
+              transform="rotate(-90 60 60)" class="darc" style="transition:stroke-dashoffset 2s ease .5s"/>
+            <text x="60" y="53" text-anchor="middle" fill="#CCA452"
+              font-family="Cormorant Garamond,serif" font-size="14" font-weight="300">130+</text>
+            <text x="60" y="64" text-anchor="middle" fill="#8A8278"
+              font-family="DM Sans,sans-serif" font-size="6.5" letter-spacing="1">EXCELLENCE</text>
+            <text x="60" y="74" text-anchor="middle" fill="#5C5650"
+              font-family="DM Sans,sans-serif" font-size="6" letter-spacing="1">+ AUTRES</text>
+          </svg>
+          <div class="donut-legend">
+            <div class="legend-row">
+              <span class="legend-dot" style="background:#B8903A"></span>
+              <span>Offre Excellence</span>
+              <span class="legend-pct" style="display:flex;flex-direction:column;align-items:flex-end;gap:1px">
+                <span style="color:var(--or)">130 dossiers</span>
+                <span style="font-size:.56rem;color:var(--txt-d)">Accompagnements immobiliers</span>
+              </span>
+            </div>
+            <div class="legend-row">
+              <span class="legend-dot" style="background:#6E5420"></span>
+              <span>Gestion Immobilière</span>
+              <span class="legend-pct" style="display:flex;flex-direction:column;align-items:flex-end;gap:1px">
+                <span style="color:var(--or)">10 biens</span>
+                <span style="font-size:.56rem;color:var(--txt-d)">Sous gestion active</span>
+              </span>
+            </div>
+            <div class="legend-row">
+              <span class="legend-dot" style="background:#355248"></span>
+              <span>Mobilité Premium</span>
+              <span class="legend-pct" style="display:flex;flex-direction:column;align-items:flex-end;gap:1px">
+                <span style="color:var(--or)">65 locations</span>
+                <span style="font-size:.56rem;color:var(--txt-d)">Véhicules réservés</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="growth-card reveal">
+        <div class="chart-title">Croissance du portefeuille clients</div>
+        <div class="chart-sub">Dossiers cumulés · Août 2025 à mai 2026</div>
+        <svg class="growth-svg" viewBox="0 0 800 140" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="gGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#B8903A" stop-opacity=".22"/>
+              <stop offset="100%" stop-color="#B8903A" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <line x1="0" y1="115" x2="800" y2="115" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+          <line x1="0" y1="83"  x2="800" y2="83"  stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+          <line x1="0" y1="50"  x2="800" y2="50"  stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+          <line x1="0" y1="20"  x2="800" y2="20"  stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+          <text x="6" y="119" fill="#5C5650" font-size="9" font-family="DM Sans">0</text>
+          <text x="6" y="87"  fill="#5C5650" font-size="9" font-family="DM Sans">40</text>
+          <text x="6" y="54"  fill="#5C5650" font-size="9" font-family="DM Sans">85</text>
+          <text x="6" y="24"  fill="#5C5650" font-size="9" font-family="DM Sans">130</text>
+          <path d="M38,113 C120,110 200,104 300,92 C400,78 480,58 580,36 C660,20 720,16 775,14 L775,115 Z"
+            fill="url(#gGrad)" id="gFill" style="opacity:0;transition:opacity 1s ease .4s"/>
+          <path id="gLine"
+            d="M38,113 C120,110 200,104 300,92 C400,78 480,58 580,36 C660,20 720,16 775,14"
+            fill="none" stroke="#B8903A" stroke-width="2.5" stroke-linecap="round"
+            stroke-dasharray="1000" stroke-dashoffset="1000"
+            style="transition:stroke-dashoffset 2.5s cubic-bezier(.4,0,.2,1)"/>
+          <circle cx="300" cy="92" r="4" fill="#B8903A" class="gdot" style="opacity:0;transition:opacity .3s ease 1.8s"/>
+          <circle cx="580" cy="36" r="4" fill="#B8903A" class="gdot" style="opacity:0;transition:opacity .3s ease 2.1s"/>
+          <circle cx="775" cy="14" r="5" fill="#B8903A" class="gdot" style="opacity:0;transition:opacity .3s ease 2.4s"/>
+          <text x="38"  y="132" fill="#5C5650" font-size="8" font-family="DM Sans" text-anchor="middle">Août 25</text>
+          <text x="300" y="132" fill="#5C5650" font-size="8" font-family="DM Sans" text-anchor="middle">Nov 25</text>
+          <text x="580" y="132" fill="#5C5650" font-size="8" font-family="DM Sans" text-anchor="middle">Fév 26</text>
+          <text x="775" y="132" fill="#5C5650" font-size="8" font-family="DM Sans" text-anchor="middle">Mai 26</text>
+        </svg>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bord)" class="reveal">
+        <div class="visites-card">
+          <div class="visites-num"><span class="counter" data-target="340">0</span><sup style="font-size:1.3rem">+</sup></div>
+          <div class="visites-label">Visites réalisées à distance</div>
+          <div class="visites-desc">En moyenne 2 à 3 visites déléguées par dossier. Rapport vidéo 4K transmis sous 24h.</div>
+        </div>
+        <div class="pays-card">
+          <div class="pays-title">Nos clients depuis</div>
+          <div class="pays-grid">
+            <span class="pays-badge">🇫🇷 France</span>
+            <span class="pays-badge">🇨🇦 Canada</span>
+            <span class="pays-badge">🇧🇪 Belgique</span>
+            <span class="pays-badge">🇨🇭 Suisse</span>
+            <span class="pays-badge">🇶🇦 Qatar</span>
+            <span class="pays-badge">🇬🇧 Angleterre</span>
+            <span class="pays-badge">🇦🇪 Émirats</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROCESSUS ═══════════ -->
+<section id="processus" class="sec">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Comment ça marche</div>
+      <h2>Cinq étapes claires.<br><em>Vous savez toujours où on en est.</em></h2>
+      <p>Chaque étape a un livrable concret. Cliquez sur une étape pour voir le détail.</p>
+    </div>
+
+    <div class="acc-steps reveal">
+
+      <div class="acc-step active" onclick="toggleStep(this)">
+        <div class="acc-header">
+          <div class="acc-left">
+            <div class="acc-num">01</div>
+            <div>
+              <div class="acc-phase">Appel de qualification</div>
+              <div class="acc-title">Un appel de 20 minutes pour comprendre votre projet</div>
+            </div>
+          </div>
+          <div class="acc-meta">
+            <div class="acc-delai">20 min</div>
+            <div class="acc-arrow">↓</div>
+          </div>
+        </div>
+        <div class="acc-body">
+          <p>Nous posons les bonnes questions pour vérifier si votre projet est réaliste et si nous pouvons vous accompagner. Aucun engagement de votre côté à ce stade.</p>
+          <div class="acc-livrables">
+            <div class="acc-livrable">Réponse claire sur la faisabilité de votre projet</div>
+            <div class="acc-livrable">Premier avis sur votre budget et le marché visé</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-step" onclick="toggleStep(this)">
+        <div class="acc-header">
+          <div class="acc-left">
+            <div class="acc-num">02</div>
+            <div>
+              <div class="acc-phase">Contractualisation</div>
+              <div class="acc-title">Contrat envoyé pendant l'appel, paiement immédiat</div>
+            </div>
+          </div>
+          <div class="acc-meta">
+            <div class="acc-delai">Immédiat</div>
+            <div class="acc-arrow">↓</div>
+          </div>
+        </div>
+        <div class="acc-body">
+          <p>Si votre projet convient pendant l'appel, le contrat vous est envoyé par email dans la foulée. Vous le signez et procédez au virement bancaire. Dès réception, votre dossier est ouvert et nous démarrons.</p>
+          <div class="acc-livrables">
+            <div class="acc-livrable">Contrat par email pendant ou juste après l'appel</div>
+            <div class="acc-livrable">Confirmation d'ouverture de dossier dès paiement reçu</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-step" onclick="toggleStep(this)">
+        <div class="acc-header">
+          <div class="acc-left">
+            <div class="acc-num">03</div>
+            <div>
+              <div class="acc-phase">Recherche & Vérification</div>
+              <div class="acc-title">Sélection rigoureuse et vérification complète</div>
+            </div>
+          </div>
+          <div class="acc-meta">
+            <div class="acc-delai">1 à 3 sem.</div>
+            <div class="acc-arrow">↓</div>
+          </div>
+        </div>
+        <div class="acc-body">
+          <p>Nous sélectionnons les biens selon vos critères, vérifions juridiquement chacun avant de vous le présenter, puis organisons une visite déléguée filmée en 4K.</p>
+          <div class="acc-livrables">
+            <div class="acc-livrable">Fiche descriptive complète de chaque bien retenu</div>
+            <div class="acc-livrable">Vidéo 4K de la visite transmise sous 24h</div>
+            <div class="acc-livrable">Résultat de la vérification juridique par écrit</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-step" onclick="toggleStep(this)">
+        <div class="acc-header">
+          <div class="acc-left">
+            <div class="acc-num">04</div>
+            <div>
+              <div class="acc-phase">Négociation</div>
+              <div class="acc-title">Nous négocions dans votre seul intérêt</div>
+            </div>
+          </div>
+          <div class="acc-meta">
+            <div class="acc-delai">1 à 2 sem.</div>
+            <div class="acc-arrow">↓</div>
+          </div>
+        </div>
+        <div class="acc-body">
+          <p>Dès que vous validez un bien, nous négocions directement avec le vendeur. Nos clients économisent en moyenne 8 à 15% sur le prix affiché.</p>
+          <div class="acc-livrables">
+            <div class="acc-livrable">Compte rendu WhatsApp après chaque échange</div>
+            <div class="acc-livrable">Proposition de prix finale avec recommandation argumentée</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-step" onclick="toggleStep(this)">
+        <div class="acc-header">
+          <div class="acc-left">
+            <div class="acc-num">05</div>
+            <div>
+              <div class="acc-phase">Signature & Remise</div>
+              <div class="acc-title">Acte signé chez votre notaire, clés remises</div>
+            </div>
+          </div>
+          <div class="acc-meta">
+            <div class="acc-delai">2 à 4 sem.</div>
+            <div class="acc-arrow">↓</div>
+          </div>
+        </div>
+        <div class="acc-body">
+          <p>Accompagnement notarial complet avec votre propre notaire. Tout est vérifié avant signature. Vous recevez un dossier complet à la clôture.</p>
+          <div class="acc-livrables">
+            <div class="acc-livrable">Acte de propriété numérisé et archivé</div>
+            <div class="acc-livrable">Photos de remise des clés et bilan du dossier</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TÉMOIGNAGES ═══════════ -->
+<!-- ═══════════ COMPARAISON ═══════════ -->
+<section id="comparaison" class="sec">
+  <div class="container">
+    <div class="comp-layout">
+      <div>
+        <div class="sec-head reveal">
+          <div class="eyebrow">Algérie Prestige vs agence classique</div>
+          <h2>Ce que vous ne trouverez<br><em>pas ailleurs.</em></h2>
+        </div>
+        <table class="comp-table reveal">
+          <thead>
+            <tr>
+              <th>Critère</th>
+              <th class="ap-col">Algérie Prestige</th>
+              <th>Agence classique</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Contrat signé avant toute action</td>
+              <td class="ap yes">Systématique</td>
+              <td class="no">Rarement</td>
+            </tr>
+            <tr>
+              <td>Vérification livret foncier original</td>
+              <td class="ap yes">En personne</td>
+              <td class="no">Parfois</td>
+            </tr>
+            <tr>
+              <td>Notaire indépendant du vendeur</td>
+              <td class="ap yes">Toujours</td>
+              <td class="no">Notaire du vendeur</td>
+            </tr>
+            <tr>
+              <td>Vidéos 4K des visites</td>
+              <td class="ap yes">Inclus sous 24h</td>
+              <td class="no">Non</td>
+            </tr>
+            <tr>
+              <td>Rapport hebdomadaire écrit</td>
+              <td class="ap yes">Inclus</td>
+              <td class="no">Non</td>
+            </tr>
+            <tr>
+              <td>Compte rendu WhatsApp en temps réel</td>
+              <td class="ap yes">Inclus</td>
+              <td class="no">Non</td>
+            </tr>
+            <tr>
+              <td>Bilan de litiges depuis le lancement</td>
+              <td class="ap yes">0 litige</td>
+              <td>Non communiqué</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="comp-right reveal">
+        <p class="comp-statement">
+          Nous ne représentons pas le vendeur, ni l'agence.<br>
+          Nous représentons <em>uniquement vos intérêts.</em>
+        </p>
+        <div class="trust-list">
+          <div class="trust-item">
+            <div class="trust-check">✓</div>
+            Contrat envoyé par email avant toute action
+          </div>
+          <div class="trust-item">
+            <div class="trust-check">✓</div>
+            Paiement par virement bancaire sécurisé
+          </div>
+          <div class="trust-item">
+            <div class="trust-check">✓</div>
+            Aucun litige depuis notre lancement en août 2025
+          </div>
+          <div class="trust-item">
+            <div class="trust-check">✓</div>
+            130 familles accompagnées, 875 000€ économisés
+          </div>
+          <div class="trust-item">
+            <div class="trust-check">✓</div>
+            Clients depuis 7 pays différents
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TÉMOIGNAGES ═══════════ -->
+<section id="temoignages" class="sec">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Témoignages</div>
+      <h2>Des familles.<br><em>Des projets réels.</em></h2>
+    </div>
+    <div class="t-grid reveal">
+      <div class="tcard">
+        <div class="tcard-badge">Vérifié</div>
+        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-text">"On cherchait depuis deux ans. En 67 jours, ils ont trouvé l'appartement, négocié le prix et accompagné toute la signature. On a économisé l'équivalent de 1,4 million de DA sur le prix demandé."</div>
+        <div class="tcard-author">
+          <div class="tcard-av">K</div>
+          <div>
+            <div class="tcard-name">Famille Karim B.</div>
+            <div class="tcard-loc">Paris · Appartement à Alger</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="tcard-badge">Vérifié</div>
+        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-text">"Ce que j'ai apprécié, c'est la transparence. Ils ont détecté un problème sur un bien avant que je signe quoi que ce soit. D'autres auraient fermé les yeux pour toucher leur commission. Eux non."</div>
+        <div class="tcard-author">
+          <div class="tcard-av">S</div>
+          <div>
+            <div class="tcard-name">Samira M.</div>
+            <div class="tcard-loc">Lyon · Villa à Tipaza</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="tcard-badge">Vérifié</div>
+        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-text">"Mon appartement à Oran est géré depuis Montréal sans que j'aie rien à faire. Je reçois un rapport chaque mois, les loyers tombent régulièrement. Exactement la tranquillité que je voulais."</div>
+        <div class="tcard-author">
+          <div class="tcard-av">Y</div>
+          <div>
+            <div class="tcard-name">Yacine L.</div>
+            <div class="tcard-loc">Montréal · Gestion à Oran</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA ═══════════ -->
+<section id="cta">
+  <div class="cta-inner reveal">
+    <div class="cta-kicker">Prêt à commencer ?</div>
+    <h2 class="cta-h2 serif">Votre projet mérite<br><em>un partenaire d'exception.</em></h2>
+    <p class="cta-p">Un appel de 20 minutes suffit pour savoir si on peut vous aider. Sans engagement, sans frais. Choisissez l'option qui vous convient le mieux.</p>
+    <div class="cta-options">
+      <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20d%C3%A9marrer%20mon%20projet%20avec%20Alg%C3%A9rie%20Prestige." class="btn-or" target="_blank">
+        Démarrer mon projet
+        <span class="arr"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT BAND -->
+<div class="contact-band">
+  <div class="contact-band-inner">
+    <div class="cb-item">
+      <div class="cb-label">WhatsApp</div>
+      <div class="cb-value"><a href="https://wa.me/33769335116" target="_blank">+33 7 69 33 51 16</a></div>
+    </div>
+    <div class="cb-item">
+      <div class="cb-label">Email professionnel</div>
+      <div class="cb-value"><a href="mailto:contact@algerieprestige.com">contact@algerieprestige.com</a></div>
+    </div>
+    <div class="cb-item">
+      <div class="cb-label">Adresse</div>
+      <div class="cb-value">Hydra, Alger, Algérie</div>
+    </div>
+    <div class="cb-item">
+      <div class="cb-label">Disponibilité</div>
+      <div class="cb-value">7j/7 · Réponse garantie sous 2h</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-n">Algérie Prestige</div>
+      <div class="footer-brand-t">Conciergerie · Pas une agence immobilière</div>
+      <p class="footer-brand-d">La conciergerie haut de gamme pour la diaspora algérienne. Basés à Hydra, Alger. Disponibles 7j/7. Depuis août 2025.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-h">Nos offres</div>
+      <ul>
+        <li><a href="#services">Offre Excellence</a></li>
+        <li><a href="#services">Gestion Immobilière</a></li>
+        <li><a href="#services">Mobilité Premium</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-h">Informations</div>
+      <ul>
+        <li><a href="#">À propos</a></li>
+        <li><a href="#processus">Notre processus</a></li>
+        <li><a href="#preuves">Résultats</a></li>
+        <li><a href="algerie-prestige-cgv-pc.html">CGV</a></li>
+        <li><a href="algerie-prestige-cgv-pc.html">Politique de confidentialité</a></li>
+        <li><a href="#">Mentions légales</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-h">Nous contacter</div>
+      <ul>
+        <li><a href="https://wa.me/33769335116" target="_blank">WhatsApp</a></li>
+        <li><a href="https://www.tiktok.com/@algerieprestige" target="_blank">TikTok</a></li>
+        <li><a href="https://www.instagram.com/algerieprestige" target="_blank">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/in/oussamamohammedchaouch" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <div style="display:flex;flex-direction:column;gap:.35rem;">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--or-2);letter-spacing:.18em;text-transform:uppercase;">Algérie Prestige</span>
+      <span style="font-size:.56rem;letter-spacing:.32em;text-transform:uppercase;color:var(--txt-d);">Conciergerie · Pas une agence immobilière</span>
+    </div>
+    <span class="footer-copy">© 2026 · Hydra, Alger, Algérie · Tous droits réservés</span>
+    <div class="footer-socials">
+      <a href="https://www.tiktok.com/@algerieprestige" class="footer-social" target="_blank">TikTok</a>
+      <a href="https://www.instagram.com/algerieprestige" class="footer-social" target="_blank">Instagram</a>
+      <a href="https://www.linkedin.com/in/oussamamohammedchaouch" class="footer-social" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* NAV */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('stuck', scrollY > 50), {passive:true});
+
+/* COUNTER */
+function runCounter(el) {
+  const t = +el.dataset.target, d = 2000, s = performance.now();
+  const tick = n => {
+    const p = Math.min((n-s)/d,1), e = 1-Math.pow(1-p,3);
+    el.textContent = Math.round(t*e);
+    if(p<1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
+/* IO */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if(!en.isIntersecting) return;
+    const el = en.target;
+    if(el.classList.contains('reveal'))    el.classList.add('in');
+    if(el.classList.contains('counter'))   runCounter(el);
+    if(el.classList.contains('bar-chart'))
+      el.querySelectorAll('.bar-fill').forEach((b,i) =>
+        setTimeout(()=>{ b.style.width = b.dataset.w+'%'; }, i*160));
+    if(el.id==='gLine') {
+      el.style.strokeDashoffset='0';
+      document.getElementById('gFill').style.opacity='1';
+      document.querySelectorAll('.gdot').forEach(d=>d.style.opacity='1');
+    }
+    if(el.classList.contains('darc'))
+      document.querySelectorAll('.darc').forEach(a=>
+        a.style.strokeDashoffset = a.getAttribute('stroke-dashoffset'));
+    io.unobserve(el);
+  });
+},{threshold:.12, rootMargin:'0px 0px -35px 0px'});
+
+document.querySelectorAll('.reveal,.counter,.bar-chart,#gLine,.darc').forEach(el=>io.observe(el));
+
+/* Stagger */
+document.querySelectorAll('.pstep,.tcard,.engagement').forEach((el,i)=>
+  el.style.transitionDelay = (i%3*.1)+'s');
+
+/* Smooth scroll */
+document.querySelectorAll('a[href^="#"]').forEach(a=>
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  }));
+
+/* Accordion */
+function toggleStep(el) {
+  const isActive = el.classList.contains('active');
+  document.querySelectorAll('.acc-step').forEach(s => s.classList.remove('active'));
+  if (!isActive) el.classList.add('active');
+}
+</script>
+</body>
+</html>
