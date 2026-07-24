@@ -431,13 +431,8 @@ p { color:var(--txt-m); line-height:1.85; }
 }
 .offre:hover .offre-photo img { transform:scale(1.04); }
 
-.photo-overlay-r {
-  position:absolute; inset:0;
-  background:linear-gradient(to right, transparent 55%, var(--noir-2) 100%);
-}
-.photo-overlay-l {
-  position:absolute; inset:0;
-  background:linear-gradient(to left, transparent 55%, var(--noir-2) 100%);
+.photo-overlay-r, .photo-overlay-l {
+  display:none;
 }
 
 .offre-body {
@@ -1120,9 +1115,6 @@ footer {
   .offre-ex, .offre-ge { grid-template-columns:1fr; min-height:auto; }
   .offre-ge .offre-body { order:0; }
   .offre-photo { height:260px; }
-  .photo-overlay-r, .photo-overlay-l {
-    background:linear-gradient(to top, var(--noir-2) 25%, transparent 100%);
-  }
   .pstep { grid-template-columns:120px 1fr; }
   .preuves-cols { grid-template-columns:1fr; }
   .comp-layout { grid-template-columns:1fr; gap:3rem; }
