@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Algérie Prestige — Conciergerie Privée pour la Diaspora Algérienne</title>
+<meta name="description" content="Conciergerie privée pour la diaspora algérienne : achat immobilier sécurisé, gestion locative, mobilité premium. Basés à Alger, disponibles 7j/7.">
+<meta property="og:title" content="Algérie Prestige — Conciergerie Privée pour la Diaspora Algérienne">
+<meta property="og:description" content="Achat immobilier, gestion locative, mobilité : nous intervenons à votre place sur le terrain en Algérie, avec un suivi transparent à chaque étape.">
+<meta property="og:image" content="https://images.pexels.com/photos/15173334/pexels-photo-15173334.jpeg?w=1200">
+<meta property="og:url" content="https://algerieprestige.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
@@ -88,8 +96,8 @@ h3 { font-size:clamp(1.3rem,2vw,1.8rem); }
 p { color:var(--txt-m); line-height:1.85; }
 
 .reveal {
-  opacity:0; transform:translateY(24px);
-  transition:opacity .8s ease, transform .8s ease;
+  opacity:0; transform:translateY(12px);
+  transition:opacity .45s ease, transform .45s ease;
 }
 .reveal.in { opacity:1; transform:none; }
 
@@ -174,9 +182,17 @@ p { color:var(--txt-m); line-height:1.85; }
 
 .hero-bg {
   position:absolute; inset:0; z-index:0;
-  background:
-    linear-gradient(105deg, rgba(6,5,4,.97) 40%, rgba(6,5,4,.7) 100%),
-    url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85') center/cover no-repeat;
+  background:var(--noir);
+  overflow:hidden;
+}
+.hero-bg video {
+  position:absolute; inset:0; z-index:0;
+  width:100%; height:100%; object-fit:cover;
+  opacity:.5;
+}
+.hero-bg::after {
+  content:''; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(105deg, rgba(6,5,4,.97) 40%, rgba(6,5,4,.7) 100%);
 }
 
 .hero-content {
@@ -524,18 +540,124 @@ p { color:var(--txt-m); line-height:1.85; }
 }
 .mob-header-left { max-width:480px; }
 
+.mob-carousel-wrap { position:relative; margin-bottom:1.75rem; }
 .mob-cats {
-  display:grid; grid-template-columns:repeat(3,1fr);
-  gap:2px; background:var(--bord); margin-bottom:1.75rem;
+  display:flex; gap:2px;
+  overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth;
+  scrollbar-width:none; -ms-overflow-style:none;
 }
+.mob-cats::-webkit-scrollbar { display:none; }
+.mob-cats .mob-cat { flex:0 0 240px; scroll-snap-align:start; border:1px solid var(--bord); }
+.mob-nav {
+  position:absolute; top:76px;
+  width:38px; height:38px; border-radius:50%;
+  background:var(--s1); border:1px solid var(--bord-2); color:var(--or);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1rem; cursor:pointer; z-index:5; transition:background .25s, color .25s;
+}
+.mob-nav:hover { background:var(--or); color:var(--noir); }
+.mob-nav.prev { left:-19px; }
+.mob-nav.next { right:-19px; }
+
+/* ─── OFFRE 4 Activités ─── */
+.act-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:2px;
+  background:var(--bord); border:1px solid var(--bord); margin-bottom:2px;
+}
+.act-card { background:var(--noir-2); display:flex; flex-direction:column; }
+.act-card-photo { position:relative; height:310px; overflow:hidden; }
+.act-card-photo img {
+  width:100%; height:100%; object-fit:cover;
+  filter:brightness(.78) contrast(1.06) saturate(.92);
+  transition:transform .7s ease;
+}
+.act-card:hover .act-card-photo img { transform:scale(1.05); }
+.act-card-body { padding:1.75rem; display:flex; flex-direction:column; flex:1; }
+.act-card-loc {
+  font-size:.5rem; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--or); margin-bottom:.6rem;
+}
+.act-card-title { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:400; margin-bottom:.65rem; color:var(--txt); }
+.act-card-desc { font-size:.74rem; color:var(--txt-m); line-height:1.75; margin-bottom:1rem; }
+.act-card-feats { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1.25rem; }
+.act-card-feats span {
+  font-size:.56rem; letter-spacing:.08em;
+  color:var(--txt-d); background:var(--s2); border:1px solid var(--bord);
+  padding:3px 9px;
+}
+.act-card-cta {
+  margin-top:auto; font-size:.66rem; letter-spacing:.08em; color:var(--or);
+  text-decoration:none; border-top:1px solid var(--bord); padding-top:.9rem;
+  transition:color .25s;
+}
+.act-card-cta:hover { color:var(--or-2); }
+
+/* Hero banner (bateau/jet ski/quad) */
+.act-hero-wrap { position:relative; overflow:hidden; height:340px; margin-bottom:2px; }
+.act-hero-wrap img {
+  width:100%; height:100%; object-fit:cover; object-position:center 42%;
+  filter:brightness(.88) contrast(1.05) saturate(1.02);
+}
+.act-hero-tag {
+  position:absolute; bottom:1rem; left:1rem;
+  background:rgba(10,10,10,.55); backdrop-filter:blur(4px);
+  color:var(--or); font-size:.58rem; letter-spacing:.28em; text-transform:uppercase;
+  padding:7px 16px; border:1px solid var(--bord-2);
+}
+
+.act-detail-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
+  background:var(--bord); border:1px solid var(--bord); margin-bottom:2.5rem;
+}
+.act-detail { background:var(--noir-2); padding:1.75rem; display:flex; flex-direction:column; }
+
+.act-divider {
+  display:flex; align-items:center; gap:1rem;
+  margin:0 0 2rem; color:var(--txt-d);
+  font-size:.58rem; letter-spacing:.22em; text-transform:uppercase;
+}
+.act-divider::before, .act-divider::after {
+  content:''; flex:1; height:1px; background:var(--bord-2);
+}
+
+.act-taghit {
+  display:grid; grid-template-columns:1fr 1fr; min-height:480px;
+  background:var(--noir-2); border:1px solid var(--bord);
+}
+.act-taghit-photo { position:relative; overflow:hidden; display:flex; flex-direction:column; gap:2px; }
+.act-taghit-photo img { flex:1 1 0; width:100%; height:0; min-height:100%; object-fit:cover; filter:brightness(.78) contrast(1.06) saturate(.92); }
+.act-card-photo video { width:100%; height:100%; object-fit:cover; object-position:center 40%; filter:brightness(.9) contrast(1.04) saturate(1); }
+
+.act-taghit-body { padding:3rem; display:flex; flex-direction:column; justify-content:space-between; }
+
+@media (max-width:860px) {
+  .act-grid { grid-template-columns:1fr; }
+  .act-detail-grid { grid-template-columns:1fr; }
+  .act-hero-wrap { height:220px; }
+  .act-taghit { grid-template-columns:1fr; }
+  .act-taghit-photo { height:260px; }
+}
+@media (max-width:600px) {
+  .offre-act { padding:1.5rem !important; }
+  .act-hero-wrap { height:180px; }
+  .act-detail { padding:1.35rem; }
+  .act-taghit-body { padding:1.75rem !important; }
+  .mob-header { flex-direction:column; }
+}
+@media (max-width:1024px) { .mob-nav { display:none; } }
 .mob-cat { background:var(--s1); overflow:hidden; transition:background .3s; }
 .mob-cat:hover { background:var(--s2); }
+.mob-cat-photo { position:relative; overflow:hidden; background:var(--noir-2); }
+.mob-cat-photo::after {
+  content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(to bottom, transparent 42%, rgba(10,8,6,.55) 62%, rgba(10,8,6,.92) 82%, var(--s1) 100%);
+}
 .mob-cat img {
-  width:100%; height:190px; object-fit:cover;
-  filter:brightness(.78) saturate(.9);
+  width:100%; height:190px; object-fit:contain; object-position:50% 50%;
+  filter:brightness(.85) saturate(.85);
   transition:transform .6s, filter .4s;
 }
-.mob-cat:hover img { transform:scale(1.04); filter:brightness(.88); }
+.mob-cat:hover img { transform:scale(1.04); filter:brightness(.95); }
 .mob-cat-body { padding:1.35rem; }
 .mob-cat-num {
   font-size:.5rem; letter-spacing:.28em; text-transform:uppercase;
@@ -546,6 +668,21 @@ p { color:var(--txt-m); line-height:1.85; }
   font-size:1.15rem; color:var(--ivoire); margin-bottom:.35rem;
 }
 .mob-cat-desc { font-size:.67rem; color:var(--txt-d); line-height:1.65; }
+
+.mob-spec { margin-top:.9rem; border-top:1px solid var(--bord); padding-top:.7rem; }
+.mob-spec summary {
+  cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between;
+  font-size:.56rem; letter-spacing:.16em; text-transform:uppercase; color:var(--or);
+}
+.mob-spec summary::-webkit-details-marker { display:none; }
+.mob-spec summary::after { content:'+'; font-size:.85rem; color:var(--or); }
+.mob-spec[open] summary::after { content:'\2013'; }
+.mob-spec-grid { margin-top:.75rem; display:flex; flex-direction:column; gap:.4rem; }
+.mob-spec-row { display:flex; justify-content:space-between; gap:.75rem; font-size:.63rem; color:var(--txt-d); }
+.mob-spec-row b { color:var(--ivoire); font-weight:400; text-align:right; }
+.mob-spec-feats { margin-top:.65rem; padding-top:.65rem; border-top:1px solid var(--bord); display:flex; flex-direction:column; gap:.4rem; }
+.mob-spec-feats div { font-size:.6rem; color:var(--txt-d); line-height:1.5; padding-left:.85rem; position:relative; }
+.mob-spec-feats div::before { content:''; position:absolute; left:0; top:.55em; width:4px; height:1px; background:var(--or); }
 
 .mob-feats {
   display:flex; flex-wrap:wrap; gap:.6rem;
@@ -769,12 +906,13 @@ p { color:var(--txt-m); line-height:1.85; }
   padding-top:1.1rem; border-top:1px solid var(--bord);
 }
 .tcard-av {
-  width:34px; height:34px; border-radius:50%;
+  width:38px; height:38px; border-radius:50%;
   background:var(--or-dim); border:1px solid var(--bord-2);
   display:flex; align-items:center; justify-content:center;
   font-family:'Cormorant Garamond',serif; font-size:.95rem; color:var(--or);
-  flex-shrink:0;
+  flex-shrink:0; overflow:hidden;
 }
+.tcard-av img { width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.05); }
 .tcard-name { font-size:.72rem; color:var(--ivoire); }
 .tcard-loc  { font-size:.6rem; color:var(--txt-d); margin-top:1px; }
 
@@ -924,17 +1062,19 @@ footer {
 /* ═══════════════ WHATSAPP ═══════════════ */
 .wa-float {
   position:fixed; bottom:1.75rem; right:1.75rem; z-index:200;
-  display:flex; align-items:center; gap:.55rem;
-  background:#1A5C1F; color:#fff;
-  padding:.78rem 1.35rem;
-  font-family:'DM Sans',sans-serif;
-  font-size:.56rem; font-weight:500; letter-spacing:.16em; text-transform:uppercase;
-  box-shadow:0 6px 28px rgba(0,0,0,.45);
+  width:60px; height:60px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:#25D366; color:#fff;
+  box-shadow:0 6px 24px rgba(0,0,0,.4);
   transition:background .25s, transform .25s;
   animation:waPulse 3.5s ease-in-out infinite;
 }
-.wa-float:hover { background:#2E7A34; color:#fff; transform:translateY(-2px); }
-.wa-float .ico { font-size:1.05rem; }
+.wa-float:hover { background:#1FBF5C; transform:scale(1.08); }
+.wa-float svg { width:30px; height:30px; fill:#fff; flex-shrink:0; }
+@media (max-width:640px) {
+  .wa-float { width:52px; height:52px; bottom:1.25rem; right:1.25rem; }
+  .wa-float svg { width:26px; height:26px; }
+}
 
 /* ═══════════════ ANIMATIONS ═══════════════ */
 @keyframes fadeUp {
@@ -988,7 +1128,6 @@ footer {
   .photo-overlay-r, .photo-overlay-l {
     background:linear-gradient(to top, var(--noir-2) 25%, transparent 100%);
   }
-  .mob-cats { grid-template-columns:1fr; }
   .pstep { grid-template-columns:120px 1fr; }
   .preuves-cols { grid-template-columns:1fr; }
   .comp-layout { grid-template-columns:1fr; gap:3rem; }
@@ -1008,17 +1147,44 @@ footer {
   .footer-grid { grid-template-columns:1fr; }
   .contact-band-inner { grid-template-columns:1fr; }
   .cta-options { flex-direction:column; align-items:center; }
-  .mob-cats { grid-template-columns:1fr; }
-  .wa-float .wa-label { display:none; }
+}
+
+/* ═══════════════ FAQ ═══════════════ */
+.faq-layout { display:grid; grid-template-columns:0.9fr 1.4fr; gap:4rem; align-items:start; }
+.faq-cats { display:flex; flex-direction:column; gap:.25rem; margin-top:2rem; position:sticky; top:120px; }
+.faq-cat-btn {
+  text-align:left; background:none; border:none; border-left:2px solid transparent;
+  font-family:'DM Sans',sans-serif; font-size:.78rem; color:var(--txt-d);
+  padding:.7rem 0 .7rem 1rem; cursor:pointer; transition:color .25s, border-color .25s;
+}
+.faq-cat-btn:hover { color:var(--or-2); }
+.faq-cat-btn.active { color:var(--or); border-color:var(--or); }
+.faq-list { display:flex; flex-direction:column; }
+.faq-item { border-bottom:1px solid var(--bord); }
+.faq-q {
+  width:100%; text-align:left; background:none; border:none; cursor:pointer;
+  display:flex; justify-content:space-between; align-items:center; gap:1rem;
+  padding:1.35rem 0; font-family:'Cormorant Garamond',serif; font-size:1.05rem;
+  color:var(--ivoire); font-weight:300;
+}
+.faq-q .faq-plus { font-size:1.1rem; color:var(--or); transition:transform .3s; flex-shrink:0; }
+.faq-q.active .faq-plus { transform:rotate(45deg); }
+.faq-a { max-height:0; overflow:hidden; transition:max-height .35s ease; }
+.faq-a p { font-size:.78rem; color:var(--txt-m); line-height:1.85; padding-bottom:1.35rem; max-width:560px; }
+@media (max-width:1024px) {
+  .faq-layout { grid-template-columns:1fr; gap:2rem; }
+  .faq-cats { position:static; flex-direction:row; flex-wrap:wrap; gap:.5rem; margin-top:1.5rem; }
+  .faq-cat-btn { border-left:none; border-bottom:2px solid transparent; padding:.5rem .1rem; }
 }
 </style>
 </head>
 <body>
 
 <!-- WHATSAPP -->
-<a href="https://wa.me/33769335116?text=Bonjour%20Alg%C3%A9rie%20Prestige%2C%20je%20souhaite%20d%C3%A9marrer%20mon%20projet." class="wa-float" target="_blank" rel="noopener">
-  <span class="ico">💬</span>
-  <span class="wa-label">Démarrer mon projet</span>
+<a href="https://wa.me/33769335116?text=Bonjour%20Alg%C3%A9rie%20Prestige%2C%20je%20souhaite%20d%C3%A9marrer%20mon%20projet." class="wa-float" target="_blank" rel="noopener" aria-label="Contacter Algérie Prestige sur WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884M20.52 3.449C18.24 1.245 15.24 0 12.05 0 5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.423-8.452"/>
+  </svg>
 </a>
 
 <!-- TOP BAR -->
@@ -1057,7 +1223,12 @@ footer {
 
 <!-- ═══════════ HERO ═══════════ -->
 <section id="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg">
+    <video autoplay muted loop playsinline
+      poster="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85">
+      <source src="https://videos.pexels.com/video-files/30216992/12955648_640_360_60fps.mp4" type="video/mp4">
+    </video>
+  </div>
 
   <div class="hero-content">
     <div class="eyebrow hero-tag">
@@ -1143,8 +1314,8 @@ footer {
     <div class="offres reveal">
 
       <!-- ── OFFRE 1 : EXCELLENCE ── -->
-      <div class="offre" style="padding:3rem;">
-        <div>
+      <div class="offre offre-ex">
+        <div class="offre-body">
             <div class="offre-kicker">Offre 01</div>
             <h3 class="offre-title">Offre Excellence</h3>
             <p class="offre-pitch">
@@ -1205,11 +1376,15 @@ footer {
             </a>
           </div>
         </div>
+        <div class="offre-photo">
+          <img src="img/activites/villa-excellence.jpg" alt="Villa accompagnée par Algérie Prestige" loading="lazy">
+          <div class="photo-overlay-r"></div>
+        </div>
       </div>
 
       <!-- ── OFFRE 2 : GESTION ── -->
-      <div class="offre" style="padding:3rem;">
-        <div>
+      <div class="offre offre-ge">
+        <div class="offre-body">
             <div class="offre-kicker">Offre 02</div>
             <h3 class="offre-title">Gestion Immobilière</h3>
             <p class="offre-pitch">
@@ -1269,6 +1444,10 @@ footer {
             </a>
           </div>
         </div>
+        <div class="offre-photo">
+          <img src="img/activites/salon-gestion.jpg" alt="Appartement mis en location par Algérie Prestige" loading="lazy">
+          <div class="photo-overlay-l"></div>
+        </div>
       </div>
 
       <!-- ── OFFRE 3 : MOBILITÉ ── -->
@@ -1286,28 +1465,156 @@ footer {
           </a>
         </div>
 
-        <div class="mob-cats">
+        <div class="mob-carousel-wrap">
+        <button class="mob-nav prev" onclick="document.getElementById('mobTrack').scrollBy({left:-250,behavior:'smooth'})" aria-label="Véhicule précédent">‹</button>
+        <div class="mob-cats" id="mobTrack">
           <div class="mob-cat">
-            <div class="mob-cat-body" style="padding:2rem 1.5rem;">
-              <div class="mob-cat-num">Catégorie 01</div>
-              <div class="mob-cat-title">Citadines</div>
-              <div class="mob-cat-desc">Idéales pour se déplacer en ville. Confortables et économiques pour vos trajets quotidiens à Alger et dans les grandes agglomérations.</div>
+            <div class="mob-cat-photo"><img src="img/vehicules/clio5.jpg" alt="Renault Clio 5" loading="lazy"></div>
+            <div class="mob-cat-body">
+              <div class="mob-cat-num">Citadine</div>
+              <div class="mob-cat-title">Renault Clio 5</div>
+              <div class="mob-cat-desc">Compacte, économique et agile en ville. Idéale pour vos trajets quotidiens à Alger.</div>
+              <details class="mob-spec">
+                <summary>Spécifications techniques</summary>
+                <div class="mob-spec-grid">
+                  <div class="mob-spec-row"><span>Tarif</span><b>50,00€ / jour</b></div>
+                  <div class="mob-spec-row"><span>Inclus</span><b>300km/jour</b></div>
+                  <div class="mob-spec-row"><span>Année</span><b>2024</b></div>
+                  <div class="mob-spec-row"><span>Carburant</span><b>Essence</b></div>
+                  <div class="mob-spec-row"><span>Transmission</span><b>Manuelle</b></div>
+                  <div class="mob-spec-row"><span>Capacité</span><b>5 Places</b></div>
+                </div>
+                <div class="mob-spec-feats">
+                  <div>Motorisation Essence 1.0 TCe 90 ch</div>
+                  <div>Carrosserie 5 portes</div>
+                  <div>Jantes alliage 16 pouces</div>
+                  <div>Écran tactile avec Apple CarPlay / Android Auto</div>
+                  <div>Climatisation automatique</div>
+                  <div>Caméra de recul</div>
+                  <div>Régulateur de vitesse</div>
+                  <div>Feux de jour LED</div>
+                </div>
+              </details>
             </div>
           </div>
           <div class="mob-cat">
-            <div class="mob-cat-body" style="padding:2rem 1.5rem;">
-              <div class="mob-cat-num">Catégorie 02</div>
-              <div class="mob-cat-title">SUV</div>
-              <div class="mob-cat-desc">Pour les familles et les longs trajets. Spacieux, puissants, adaptés aux routes algériennes.</div>
+            <div class="mob-cat-photo"><img src="img/vehicules/sandero.jpg" alt="Dacia Sandero" loading="lazy"></div>
+            <div class="mob-cat-body">
+              <div class="mob-cat-num">Citadine</div>
+              <div class="mob-cat-title">Dacia Sandero</div>
+              <div class="mob-cat-desc">Simple, fiable et confortable. Un excellent rapport praticité-budget pour vos déplacements.</div>
+              <details class="mob-spec">
+                <summary>Spécifications techniques</summary>
+                <div class="mob-spec-grid">
+                  <div class="mob-spec-row"><span>Tarif</span><b>50,00€ / jour</b></div>
+                  <div class="mob-spec-row"><span>Inclus</span><b>300km/jour</b></div>
+                  <div class="mob-spec-row"><span>Année</span><b>2024</b></div>
+                  <div class="mob-spec-row"><span>Carburant</span><b>Essence</b></div>
+                  <div class="mob-spec-row"><span>Transmission</span><b>Manuelle</b></div>
+                  <div class="mob-spec-row"><span>Capacité</span><b>5 Places</b></div>
+                </div>
+                <div class="mob-spec-feats">
+                  <div>Motorisation Essence TCe 90 ch</div>
+                  <div>Carrosserie 5 portes</div>
+                  <div>Jantes alliage 16 pouces</div>
+                  <div>Écran tactile avec Apple CarPlay / Android Auto</div>
+                  <div>Climatisation automatique</div>
+                  <div>Caméra de recul</div>
+                  <div>Régulateur de vitesse</div>
+                  <div>Feux de jour LED</div>
+                </div>
+              </details>
             </div>
           </div>
           <div class="mob-cat">
-            <div class="mob-cat-body" style="padding:2rem 1.5rem;">
-              <div class="mob-cat-num">Catégorie 03</div>
-              <div class="mob-cat-title">Berlines avec chauffeur</div>
-              <div class="mob-cat-desc">Pour ceux qui ne veulent rien gérer. Chauffeur dédié, prise en charge à votre hôtel ou domicile, disponibilité à la journée ou à la semaine.</div>
+            <div class="mob-cat-photo"><img src="https://images.pexels.com/photos/15773881/pexels-photo-15773881.jpeg?w=600" alt="Hyundai Bayon" loading="lazy"></div>
+            <div class="mob-cat-body">
+              <div class="mob-cat-num">SUV Compact</div>
+              <div class="mob-cat-title">Hyundai Bayon</div>
+              <div class="mob-cat-desc">Position de conduite haute et polyvalence pour la ville comme les routes secondaires.</div>
+              <details class="mob-spec">
+                <summary>Spécifications techniques</summary>
+                <div class="mob-spec-grid">
+                  <div class="mob-spec-row"><span>Tarif</span><b>70,00€ / jour</b></div>
+                  <div class="mob-spec-row"><span>Inclus</span><b>300km/jour</b></div>
+                  <div class="mob-spec-row"><span>Année</span><b>2024</b></div>
+                  <div class="mob-spec-row"><span>Carburant</span><b>Diesel</b></div>
+                  <div class="mob-spec-row"><span>Transmission</span><b>Automatique</b></div>
+                  <div class="mob-spec-row"><span>Capacité</span><b>5 Places</b></div>
+                </div>
+                <div class="mob-spec-feats">
+                  <div>Motorisation Diesel automatique</div>
+                  <div>Carrosserie 5 portes</div>
+                  <div>Jantes alliage 17 pouces</div>
+                  <div>Écran tactile avec Apple CarPlay / Android Auto</div>
+                  <div>Climatisation automatique</div>
+                  <div>Caméra de recul</div>
+                  <div>Régulateur de vitesse</div>
+                  <div>Feux LED</div>
+                </div>
+              </details>
             </div>
           </div>
+          <div class="mob-cat">
+            <div class="mob-cat-photo"><img src="https://images.pexels.com/photos/30324869/pexels-photo-30324869.jpeg?w=600" alt="Hyundai Creta" loading="lazy"></div>
+            <div class="mob-cat-body">
+              <div class="mob-cat-num">SUV</div>
+              <div class="mob-cat-title">Hyundai Creta</div>
+              <div class="mob-cat-desc">Spacieux et robuste, parfait pour les familles et les longs trajets sur les routes algériennes.</div>
+              <details class="mob-spec">
+                <summary>Spécifications techniques</summary>
+                <div class="mob-spec-grid">
+                  <div class="mob-spec-row"><span>Tarif</span><b>70,00€ / jour</b></div>
+                  <div class="mob-spec-row"><span>Inclus</span><b>300km/jour</b></div>
+                  <div class="mob-spec-row"><span>Année</span><b>2024</b></div>
+                  <div class="mob-spec-row"><span>Carburant</span><b>Diesel</b></div>
+                  <div class="mob-spec-row"><span>Transmission</span><b>Automatique</b></div>
+                  <div class="mob-spec-row"><span>Capacité</span><b>5 Places</b></div>
+                </div>
+                <div class="mob-spec-feats">
+                  <div>Motorisation Diesel 1.5 CRDi 115 ch</div>
+                  <div>Carrosserie 5 portes</div>
+                  <div>Jantes alliage 17 pouces</div>
+                  <div>Écran tactile avec Apple CarPlay / Android Auto</div>
+                  <div>Climatisation automatique</div>
+                  <div>Caméra de recul + capteurs de stationnement</div>
+                  <div>Régulateur de vitesse</div>
+                  <div>Feux LED</div>
+                </div>
+              </details>
+            </div>
+          </div>
+          <div class="mob-cat">
+            <div class="mob-cat-photo"><img src="img/vehicules/3008.jpg" alt="Peugeot 3008" loading="lazy"></div>
+            <div class="mob-cat-body">
+              <div class="mob-cat-num">SUV</div>
+              <div class="mob-cat-title">Peugeot 3008</div>
+              <div class="mob-cat-desc">Confortable et statutaire, avec ou sans chauffeur. Le bon choix pour vos déplacements professionnels ou familiaux.</div>
+              <details class="mob-spec">
+                <summary>Spécifications techniques</summary>
+                <div class="mob-spec-grid">
+                  <div class="mob-spec-row"><span>Tarif</span><b>70,00€ / jour</b></div>
+                  <div class="mob-spec-row"><span>Inclus</span><b>300km/jour</b></div>
+                  <div class="mob-spec-row"><span>Année</span><b>2024</b></div>
+                  <div class="mob-spec-row"><span>Carburant</span><b>Diesel</b></div>
+                  <div class="mob-spec-row"><span>Transmission</span><b>Automatique</b></div>
+                  <div class="mob-spec-row"><span>Capacité</span><b>5 Places</b></div>
+                </div>
+                <div class="mob-spec-feats">
+                  <div>Motorisation Diesel BlueHDi automatique</div>
+                  <div>Carrosserie 5 portes</div>
+                  <div>Jantes alliage 18 pouces</div>
+                  <div>Écran tactile i-Cockpit avec Apple CarPlay / Android Auto</div>
+                  <div>Climatisation automatique</div>
+                  <div>Caméra de recul + radars de stationnement</div>
+                  <div>Régulateur de vitesse adaptatif</div>
+                  <div>Feux LED signature</div>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+        <button class="mob-nav next" onclick="document.getElementById('mobTrack').scrollBy({left:250,behavior:'smooth'})" aria-label="Véhicule suivant">›</button>
         </div>
 
         <div class="mob-feats">
@@ -1319,6 +1626,117 @@ footer {
           <div class="mob-feat">Tarifs transparents, sans surprise</div>
         </div>
       </div>
+
+      <!-- ── OFFRE 4 : ACTIVITÉS ── -->
+      <div class="offre offre-act" style="padding:3rem;">
+        <div class="mob-header">
+          <div class="mob-header-left">
+            <div class="offre-kicker">Offre 04</div>
+            <h3 class="offre-title">Activités & Expériences</h3>
+            <p class="offre-pitch" style="max-width:480px;margin-bottom:0">
+              Votre séjour ne s'arrête pas au bien ou au véhicule. Nous organisons aussi vos moments forts sur place : sorties en mer, jet ski et quad à Alger et Béjaïa, et une évasion complète dans le désert de Taghit.
+            </p>
+          </div>
+        </div>
+
+        <div class="act-hero-wrap">
+          <img src="img/activites/act-hero.jpg" alt="Balade en bateau, jet ski et quad avec Algérie Prestige, Alger et Béjaïa" loading="lazy">
+          <div class="act-hero-tag">Alger & Béjaïa</div>
+        </div>
+
+        <div class="act-detail-grid">
+          <div class="act-detail">
+            <div class="act-card-loc">Alger & Béjaïa</div>
+            <div class="act-card-title">Balade en bateau</div>
+            <div class="act-card-desc">Longez la côte au fil de l'eau, entre criques isolées, falaises et plages inaccessibles par la route. À Alger comme à Béjaïa, la sortie s'adapte à vos envies : balade calme au coucher du soleil ou virée plus rythmée, toujours encadrée par des marins locaux.</div>
+            <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20une%20balade%20en%20bateau." class="act-card-cta">Réserver une sortie →</a>
+          </div>
+
+          <div class="act-detail">
+            <div class="act-card-loc">Alger & Béjaïa</div>
+            <div class="act-card-title">Jet Ski</div>
+            <div class="act-card-desc">Sur les eaux d'Alger comme de Béjaïa, embarquez sur nos jet skis récents et rigoureusement entretenus pour filer sur la Méditerranée. Novice ou habitué des sensations fortes, vous repartez avec la même promesse : liberté totale face à la mer, sans permis bateau à présenter.</div>
+            <div class="act-card-feats">
+              <span>Aucun permis requis</span>
+              <span>Gilets & équipements fournis</span>
+            </div>
+            <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20jet%20ski%20%C3%A0%20Alger%20ou%20B%C3%A9ja%C3%AFa." class="act-card-cta">Réserver →</a>
+          </div>
+
+          <div class="act-detail">
+            <div class="act-card-loc">Alger & Béjaïa</div>
+            <div class="act-card-title">Quad</div>
+            <div class="act-card-desc">Sortez des sentiers battus à bord d'un quad tout-terrain, entre pistes côtières et arrière-pays, encadré par un guide local. Une manière plus brute de découvrir le littoral, entre poussière, virages et vues dégagées sur la mer.</div>
+            <div class="act-card-feats">
+              <span>Casque & équipement fournis</span>
+              <span>Encadrement par un guide</span>
+            </div>
+            <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20une%20sortie%20quad." class="act-card-cta">Réserver →</a>
+          </div>
+        </div>
+
+        <div class="act-divider"><span>Et aussi, une évasion plus longue</span></div>
+
+        <div class="act-taghit">
+          <div class="act-taghit-photo">
+            <img src="img/activites/taghit-1.jpg" alt="Formations rocheuses au coucher du soleil, désert de Taghit" loading="lazy">
+            <img src="img/activites/taghit-2.jpg" alt="Dunes de sable du désert de Taghit" loading="lazy">
+            <div class="photo-overlay-l"></div>
+          </div>
+          <div class="act-taghit-body">
+            <div>
+              <div class="offre-kicker">Séjour désert</div>
+              <h3 class="offre-title" style="font-size:1.6rem">Taghit, entre dunes et oasis</h3>
+              <p class="offre-pitch" style="max-width:460px">
+                À la frontière du grand Sahara, Taghit offre quatre jours de dépaysement total : dunes à perte de vue, oasis, gravures rupestres et nuits étoilées. Vol, hôtel, repas et activités sont organisés de bout en bout — vous n'avez qu'à embarquer.
+              </p>
+
+              <div class="offre-inclus">
+                <div class="offre-inclus-head">Ce que comprend le forfait</div>
+                <div class="inclus-list">
+                  <div class="inclus-item">
+                    <span class="inclus-check">✓</span>
+                    Vol aller-retour Alger–Béchar ou Oran–Béchar
+                  </div>
+                  <div class="inclus-item">
+                    <span class="inclus-check">✓</span>
+                    4 jours / 3 nuits à l'Hôtel Bladi Palace 4 étoiles, en chambre double ou triple
+                  </div>
+                  <div class="inclus-item">
+                    <span class="inclus-check">✓</span>
+                    Transferts aéroport-hôtel aller-retour (80 km)
+                  </div>
+                  <div class="inclus-item">
+                    <span class="inclus-check">✓</span>
+                    Pension complète : petit-déjeuner à l'hôtel, déjeuner et dîner en extérieur
+                  </div>
+                  <div class="inclus-item">
+                    <span class="inclus-check">✓</span>
+                    Safari en 4x4, kayak sur le lac de Taghit, balade à dos de dromadaire
+                  </div>
+                  <div class="inclus-item">
+                    <span class="inclus-check">✓</span>
+                    Ski sur sable, sorties nocturnes et soirée musicale, visites guidées
+                  </div>
+                </div>
+              </div>
+
+              <div class="offre-exclus">
+                <strong>En option sur place :</strong> quad (7 000 DA / heure), buggy (30 000 DA / heure), bivouac en demi-pension (80€). Chambre single : supplément obligatoire de 40€ / 9 000 DA pour les voyageurs seuls.
+              </div>
+            </div>
+
+            <div class="offre-footer">
+              <div>
+                <div class="offre-price-n">460€</div>
+                <div class="offre-price-l">par personne · forfait 4 jours / 3 nuits</div>
+              </div>
+              <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20s%C3%A9jour%20d%C3%A9sert%20%C3%A0%20Taghit." class="btn-or" target="_blank">
+                Réserver ce séjour
+              </a>
+            </div>
+          </div>
+        </div>
 
     </div>
   </div>
@@ -1706,7 +2124,7 @@ footer {
         <div class="tcard-stars">★★★★★</div>
         <div class="tcard-text">"On cherchait depuis deux ans. En 67 jours, ils ont trouvé l'appartement, négocié le prix et accompagné toute la signature. On a économisé l'équivalent de 1,4 million de DA sur le prix demandé."</div>
         <div class="tcard-author">
-          <div class="tcard-av">K</div>
+          <div class="tcard-av"><img src="https://images.pexels.com/photos/37218479/pexels-photo-37218479.jpeg?w=100" alt="Karim B." loading="lazy"></div>
           <div>
             <div class="tcard-name">Famille Karim B.</div>
             <div class="tcard-loc">Paris · Appartement à Alger</div>
@@ -1718,7 +2136,7 @@ footer {
         <div class="tcard-stars">★★★★★</div>
         <div class="tcard-text">"Ce que j'ai apprécié, c'est la transparence. Ils ont détecté un problème sur un bien avant que je signe quoi que ce soit. D'autres auraient fermé les yeux pour toucher leur commission. Eux non."</div>
         <div class="tcard-author">
-          <div class="tcard-av">S</div>
+          <div class="tcard-av"><img src="https://images.pexels.com/photos/23496671/pexels-photo-23496671.jpeg?w=100" alt="Samira M." loading="lazy"></div>
           <div>
             <div class="tcard-name">Samira M.</div>
             <div class="tcard-loc">Lyon · Villa à Tipaza</div>
@@ -1730,13 +2148,32 @@ footer {
         <div class="tcard-stars">★★★★★</div>
         <div class="tcard-text">"Mon appartement à Oran est géré depuis Montréal sans que j'aie rien à faire. Je reçois un rapport chaque mois, les loyers tombent régulièrement. Exactement la tranquillité que je voulais."</div>
         <div class="tcard-author">
-          <div class="tcard-av">Y</div>
+          <div class="tcard-av"><img src="https://images.pexels.com/photos/7446948/pexels-photo-7446948.jpeg?w=100" alt="Yacine L." loading="lazy"></div>
           <div>
             <div class="tcard-name">Yacine L.</div>
             <div class="tcard-loc">Montréal · Gestion à Oran</div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section id="faq" class="sec">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Des questions ?</div>
+      <h2>On vous <em>répond.</em></h2>
+    </div>
+    <div class="faq-layout reveal">
+      <div class="faq-cats" id="faqCats">
+        <button class="faq-cat-btn active" data-cat="services">Services &amp; déroulement</button>
+        <button class="faq-cat-btn" data-cat="tarifs">Tarifs &amp; conditions</button>
+        <button class="faq-cat-btn" data-cat="confiance">Confiance &amp; sécurité</button>
+        <button class="faq-cat-btn" data-cat="urgences">Assistance</button>
+      </div>
+      <div class="faq-list" id="faqList"></div>
     </div>
   </div>
 </section>
@@ -1792,17 +2229,18 @@ footer {
         <li><a href="#services">Offre Excellence</a></li>
         <li><a href="#services">Gestion Immobilière</a></li>
         <li><a href="#services">Mobilité Premium</a></li>
+        <li><a href="#services">Activités & Expériences</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <div class="footer-col-h">Informations</div>
       <ul>
-        <li><a href="#">À propos</a></li>
+        <li><a href="carte-de-visite.html">À propos</a></li>
         <li><a href="#processus">Notre processus</a></li>
         <li><a href="#preuves">Résultats</a></li>
         <li><a href="cgv.html">CGV</a></li>
         <li><a href="cgv.html">Politique de confidentialité</a></li>
-        <li><a href="#">Mentions légales</a></li>
+        <li><a href="cgv.html#mentions-legales">Mentions légales</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1865,7 +2303,7 @@ const io = new IntersectionObserver(entries => {
         a.style.strokeDashoffset = a.getAttribute('stroke-dashoffset'));
     io.unobserve(el);
   });
-},{threshold:.12, rootMargin:'0px 0px -35px 0px'});
+},{threshold:.01, rootMargin:'0px 0px -5% 0px'});
 
 document.querySelectorAll('.reveal,.counter,.bar-chart,#gLine,.darc').forEach(el=>io.observe(el));
 
@@ -1886,6 +2324,59 @@ function toggleStep(el) {
   document.querySelectorAll('.acc-step').forEach(s => s.classList.remove('active'));
   if (!isActive) el.classList.add('active');
 }
+
+/* FAQ */
+const faqData = {
+  services: [
+    ["Comment se passe une première demande ?", "Un appel de qualification de 20 minutes, sans engagement, pour comprendre votre projet et vérifier qu'il est réaliste. Si tout convient, le contrat vous est envoyé dans la foulée."],
+    ["Combien de temps pour avoir une réponse ?", "Nous répondons sous 2h, 7j/7, par WhatsApp ou email."],
+    ["Puis-je combiner plusieurs offres ?", "Oui. De nombreux clients cumulent l'Offre Excellence pour l'achat puis la Gestion Immobilière pour la mise en location du bien acquis."],
+    ["Travaillez-vous uniquement avec la diaspora ?", "Notre accompagnement est pensé pour les Algériens vivant à l'étranger, mais nous restons ouverts à toute personne ayant besoin d'un accompagnement sur place en Algérie."]
+  ],
+  tarifs: [
+    ["Le paiement se fait-il en une seule fois ?", "Oui, le paiement intégral est exigé avant le démarrage de la prestation, une fois le contrat signé."],
+    ["Les frais de notaire sont-ils inclus dans vos honoraires ?", "Non. Les frais de notaire, taxes et droits d'enregistrement restent à la charge du client et varient selon le bien."],
+    ["Puis-je être remboursé si je change d'avis ?", "Non : conformément à nos CGV, aucun remboursement n'est possible une fois le contrat signé et le paiement effectué. C'est pourquoi l'appel de qualification initial, gratuit et sans engagement, est essentiel avant de vous décider."],
+    ["Le mandat a-t-il une durée limitée ?", "Le mandat de recherche est conclu pour 12 mois."]
+  ],
+  confiance: [
+    ["Comment vérifiez-vous un bien avant de me le présenter ?", "Triple vérification juridique (livret foncier, situation du bien) avant toute visite, puis une visite déléguée filmée en 4K avec compte rendu sous 24h."],
+    ["Qui choisit le notaire ?", "Vous. Nous travaillons systématiquement avec votre propre notaire, indépendant de celui du vendeur, pour garantir que vos intérêts sont défendus."],
+    ["Que se passe-t-il si vous détectez un problème sur un bien ?", "Nous vous le signalons immédiatement, même si cela remet en cause la vente. Nous ne représentons que vos intérêts, jamais ceux du vendeur ou d'une agence."],
+    ["Avez-vous déjà eu des litiges ?", "Aucun litige à ce jour depuis notre lancement en août 2025."]
+  ],
+  urgences: [
+    ["Êtes-vous disponibles en dehors des horaires de bureau ?", "Oui, nous sommes disponibles 7j/7 avec une réponse garantie sous 2h."],
+    ["Comment vous contacter le plus rapidement ?", "WhatsApp reste le canal le plus rapide : +33 7 69 33 51 16."],
+    ["En cas d'urgence sur un bien en gestion locative ?", "Nous nous engageons à répondre à toute urgence (maintenance, voyageur, incident) sous 24h."]
+  ]
+};
+const faqListEl = document.getElementById('faqList');
+function renderFaq(cat) {
+  if (!faqListEl) return;
+  faqListEl.innerHTML = faqData[cat].map(([q,a]) => `
+    <div class="faq-item">
+      <button class="faq-q"><span>${q}</span><span class="faq-plus">+</span></button>
+      <div class="faq-a"><p>${a}</p></div>
+    </div>
+  `).join('');
+  faqListEl.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const answer = btn.nextElementSibling;
+      const isOpen = btn.classList.contains('active');
+      faqListEl.querySelectorAll('.faq-q').forEach(b => { b.classList.remove('active'); b.nextElementSibling.style.maxHeight = null; });
+      if (!isOpen) { btn.classList.add('active'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+    });
+  });
+}
+document.querySelectorAll('.faq-cat-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.faq-cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderFaq(btn.dataset.cat);
+  });
+});
+if (faqListEl) renderFaq('services');
 </script>
 </body>
 </html>
