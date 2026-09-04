@@ -590,6 +590,12 @@ p { color:var(--txt-m); line-height:1.85; }
   transition:color .25s;
 }
 .act-card-cta:hover { color:var(--or-2); }
+.bs-badge {
+  position:absolute; top:.85rem; right:.85rem; z-index:2;
+  background:var(--or); color:var(--noir);
+  font-size:.56rem; letter-spacing:.14em; text-transform:uppercase;
+  font-weight:600; padding:5px 12px;
+}
 
 /* Hero banner (bateau/jet ski/quad) */
 .act-hero-wrap { position:relative; overflow:hidden; height:340px; margin-bottom:2px; }
@@ -1295,6 +1301,52 @@ footer {
   </div>
 </div>
 
+<!-- ═══════════ BEST-SELLERS ═══════════ -->
+<section id="bestsellers" class="sec" style="padding:4.5rem 0 1rem;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:2.5rem;" class="reveal">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:.75rem;">Les préférés de nos clients</div>
+      <h2>Nos best-sellers</h2>
+    </div>
+
+    <div class="act-grid reveal">
+      <div class="act-card">
+        <div class="act-card-photo">
+          <img src="img/activites/villa-excellence.jpg" alt="Offre Excellence — accompagnement achat immobilier" loading="lazy">
+          <div class="bs-badge">Best-seller</div>
+        </div>
+        <div class="act-card-body">
+          <div class="act-card-loc">Offre 01 · Immobilier</div>
+          <div class="act-card-title">Offre Excellence</div>
+          <div class="act-card-desc">Achat immobilier accompagné de bout en bout : recherche, visites déléguées, négociation et sécurisation juridique. 130 familles déjà accompagnées, 875 000€ économisés en négociation.</div>
+          <div class="act-card-feats">
+            <span>1 000€ / dossier</span>
+            <span>Tout inclus</span>
+          </div>
+          <a href="#offre-excellence" class="act-card-cta">Découvrir l'offre →</a>
+        </div>
+      </div>
+
+      <div class="act-card">
+        <div class="act-card-photo">
+          <img src="img/activites/taghit-1.jpg" alt="Séjour désert à Taghit avec Algérie Prestige" loading="lazy">
+          <div class="bs-badge">Best-seller</div>
+        </div>
+        <div class="act-card-body">
+          <div class="act-card-loc">Offre 04 · Expérience</div>
+          <div class="act-card-title">Séjour à Taghit</div>
+          <div class="act-card-desc">Quatre jours entre dunes à perte de vue, oasis et nuits étoilées, aux portes du grand Sahara : vol, hôtel 4 étoiles, pension complète et activités organisés de bout en bout.</div>
+          <div class="act-card-feats">
+            <span>460€ / personne</span>
+            <span>4 jours / 3 nuits</span>
+          </div>
+          <a href="#taghit" class="act-card-cta">Découvrir le séjour →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════ SERVICES ═══════════ -->
 <section id="services" class="sec" style="padding-bottom:2rem;">
   <div class="container">
@@ -1307,7 +1359,7 @@ footer {
     <div class="offres reveal">
 
       <!-- ── OFFRE 1 : EXCELLENCE ── -->
-      <div class="offre offre-ex">
+      <div class="offre offre-ex" id="offre-excellence">
         <div class="offre-body">
             <div class="offre-kicker">Offre 01</div>
             <h3 class="offre-title">Offre Excellence</h3>
@@ -1443,234 +1495,99 @@ footer {
         </div>
       </div>
 
-      <!-- ── OFFRE 3 : MOBILITÉ ── -->
-      <div class="offre offre-mob">
+      <!-- ── OFFRE 3 : CHAUFFEUR PRIVÉ MAYBACH ── -->
+      <div class="offre offre-act" style="padding:3rem" id="chauffeur-maybach">
         <div class="mob-header">
           <div class="mob-header-left">
             <div class="offre-kicker">Offre 03</div>
-            <h3 class="offre-title">Mobilité Premium</h3>
-            <p class="offre-pitch" style="max-width:440px;margin-bottom:0">
-              Un véhicule vous attend à votre hôtel ou domicile dès votre arrivée en Algérie. Sans négociation, sans improvisation. Vous posez vos bagages, vous prenez le volant.
+            <h3 class="offre-title">Chauffeur Privé — Classe V Maybach</h3>
+            <p class="offre-pitch" style="max-width:480px;margin-bottom:0">
+              À Alger, bénéficiez d'un véhicule haut de gamme avec chauffeur privé, entièrement dédié à vos déplacements. Pensé pour une clientèle exigeante, ce service vous permet de disposer d'une Mercedes-Benz Classe V Maybach avec chauffeur, selon votre programme et la durée de votre séjour. Que vous soyez à Alger pour quelques heures, une journée ou plusieurs jours, votre chauffeur vous accompagne avec discrétion, ponctualité et professionnalisme.
             </p>
           </div>
-          <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20v%C3%A9hicule%20avec%20Alg%C3%A9rie%20Prestige." class="btn-or" target="_blank" style="align-self:flex-start">
-            Réserver un véhicule
-          </a>
         </div>
 
-        <div class="mob-carousel-wrap">
-        <button class="mob-nav prev" onclick="document.getElementById('mobTrack').scrollBy({left:-250,behavior:'smooth'})" aria-label="Véhicule précédent">‹</button>
-        <div class="mob-cats" id="mobTrack">
-          <div class="mob-cat">
-            <div class="mob-cat-photo"><img src="img/vehicules/clio5.jpg" alt="Renault Clio 5" loading="lazy"></div>
-            <div class="mob-cat-body">
-              <div class="mob-cat-num">Citadine</div>
-              <div class="mob-cat-title">Renault Clio 5</div>
-              <div class="mob-cat-desc">Compacte, économique et agile en ville. Idéale pour vos trajets quotidiens à Alger.</div>
-              <details class="mob-spec">
-                <summary>Spécifications techniques</summary>
-                <div class="mob-spec-grid">
-                  <div class="mob-spec-row"><span>Tarif</span><b>50,00€ / jour</b></div>
-                  <div class="mob-spec-row"><span>Inclus</span><b>300km/jour</b></div>
-                  <div class="mob-spec-row"><span>Année</span><b>2024</b></div>
-                  <div class="mob-spec-row"><span>Carburant</span><b>Essence</b></div>
-                  <div class="mob-spec-row"><span>Transmission</span><b>Manuelle</b></div>
-                  <div class="mob-spec-row"><span>Capacité</span><b>5 Places</b></div>
-                </div>
-                <div class="mob-spec-feats">
-                  <div>Motorisation Essence 1.0 TCe 90 ch</div>
-                  <div>Carrosserie 5 portes</div>
-                  <div>Jantes alliage 16 pouces</div>
-                  <div>Écran tactile avec Apple CarPlay / Android Auto</div>
-                  <div>Climatisation automatique</div>
-                  <div>Caméra de recul</div>
-                  <div>Régulateur de vitesse</div>
-                  <div>Feux de jour LED</div>
-                </div>
-              </details>
-            </div>
-          </div>
-          <div class="mob-cat">
-            <div class="mob-cat-photo"><img src="img/vehicules/sandero.jpg" alt="Dacia Sandero" loading="lazy"></div>
-            <div class="mob-cat-body">
-              <div class="mob-cat-num">Citadine</div>
-              <div class="mob-cat-title">Dacia Sandero</div>
-              <div class="mob-cat-desc">Simple, fiable et confortable. Un excellent rapport praticité-budget pour vos déplacements.</div>
-              <details class="mob-spec">
-                <summary>Spécifications techniques</summary>
-                <div class="mob-spec-grid">
-                  <div class="mob-spec-row"><span>Tarif</span><b>50,00€ / jour</b></div>
-                  <div class="mob-spec-row"><span>Inclus</span><b>300km/jour</b></div>
-                  <div class="mob-spec-row"><span>Année</span><b>2024</b></div>
-                  <div class="mob-spec-row"><span>Carburant</span><b>Essence</b></div>
-                  <div class="mob-spec-row"><span>Transmission</span><b>Manuelle</b></div>
-                  <div class="mob-spec-row"><span>Capacité</span><b>5 Places</b></div>
-                </div>
-                <div class="mob-spec-feats">
-                  <div>Motorisation Essence TCe 90 ch</div>
-                  <div>Carrosserie 5 portes</div>
-                  <div>Jantes alliage 16 pouces</div>
-                  <div>Écran tactile avec Apple CarPlay / Android Auto</div>
-                  <div>Climatisation automatique</div>
-                  <div>Caméra de recul</div>
-                  <div>Régulateur de vitesse</div>
-                  <div>Feux de jour LED</div>
-                </div>
-              </details>
-            </div>
-          </div>
-          <div class="mob-cat">
-            <div class="mob-cat-photo"><img src="https://images.pexels.com/photos/15773881/pexels-photo-15773881.jpeg?w=600" alt="Hyundai Bayon" loading="lazy"></div>
-            <div class="mob-cat-body">
-              <div class="mob-cat-num">SUV Compact</div>
-              <div class="mob-cat-title">Hyundai Bayon</div>
-              <div class="mob-cat-desc">Position de conduite haute et polyvalence pour la ville comme les routes secondaires.</div>
-              <details class="mob-spec">
-                <summary>Spécifications techniques</summary>
-                <div class="mob-spec-grid">
-                  <div class="mob-spec-row"><span>Tarif</span><b>70,00€ / jour</b></div>
-                  <div class="mob-spec-row"><span>Inclus</span><b>300km/jour</b></div>
-                  <div class="mob-spec-row"><span>Année</span><b>2024</b></div>
-                  <div class="mob-spec-row"><span>Carburant</span><b>Diesel</b></div>
-                  <div class="mob-spec-row"><span>Transmission</span><b>Automatique</b></div>
-                  <div class="mob-spec-row"><span>Capacité</span><b>5 Places</b></div>
-                </div>
-                <div class="mob-spec-feats">
-                  <div>Motorisation Diesel automatique</div>
-                  <div>Carrosserie 5 portes</div>
-                  <div>Jantes alliage 17 pouces</div>
-                  <div>Écran tactile avec Apple CarPlay / Android Auto</div>
-                  <div>Climatisation automatique</div>
-                  <div>Caméra de recul</div>
-                  <div>Régulateur de vitesse</div>
-                  <div>Feux LED</div>
-                </div>
-              </details>
-            </div>
-          </div>
-          <div class="mob-cat">
-            <div class="mob-cat-photo"><img src="https://images.pexels.com/photos/30324869/pexels-photo-30324869.jpeg?w=600" alt="Hyundai Creta" loading="lazy"></div>
-            <div class="mob-cat-body">
-              <div class="mob-cat-num">SUV</div>
-              <div class="mob-cat-title">Hyundai Creta</div>
-              <div class="mob-cat-desc">Spacieux et robuste, parfait pour les familles et les longs trajets sur les routes algériennes.</div>
-              <details class="mob-spec">
-                <summary>Spécifications techniques</summary>
-                <div class="mob-spec-grid">
-                  <div class="mob-spec-row"><span>Tarif</span><b>70,00€ / jour</b></div>
-                  <div class="mob-spec-row"><span>Inclus</span><b>300km/jour</b></div>
-                  <div class="mob-spec-row"><span>Année</span><b>2024</b></div>
-                  <div class="mob-spec-row"><span>Carburant</span><b>Diesel</b></div>
-                  <div class="mob-spec-row"><span>Transmission</span><b>Automatique</b></div>
-                  <div class="mob-spec-row"><span>Capacité</span><b>5 Places</b></div>
-                </div>
-                <div class="mob-spec-feats">
-                  <div>Motorisation Diesel 1.5 CRDi 115 ch</div>
-                  <div>Carrosserie 5 portes</div>
-                  <div>Jantes alliage 17 pouces</div>
-                  <div>Écran tactile avec Apple CarPlay / Android Auto</div>
-                  <div>Climatisation automatique</div>
-                  <div>Caméra de recul + capteurs de stationnement</div>
-                  <div>Régulateur de vitesse</div>
-                  <div>Feux LED</div>
-                </div>
-              </details>
-            </div>
-          </div>
-          <div class="mob-cat">
-            <div class="mob-cat-photo"><img src="img/vehicules/3008.jpg" alt="Peugeot 3008" loading="lazy"></div>
-            <div class="mob-cat-body">
-              <div class="mob-cat-num">SUV</div>
-              <div class="mob-cat-title">Peugeot 3008</div>
-              <div class="mob-cat-desc">Confortable et statutaire, avec ou sans chauffeur. Le bon choix pour vos déplacements professionnels ou familiaux.</div>
-              <details class="mob-spec">
-                <summary>Spécifications techniques</summary>
-                <div class="mob-spec-grid">
-                  <div class="mob-spec-row"><span>Tarif</span><b>70,00€ / jour</b></div>
-                  <div class="mob-spec-row"><span>Inclus</span><b>300km/jour</b></div>
-                  <div class="mob-spec-row"><span>Année</span><b>2024</b></div>
-                  <div class="mob-spec-row"><span>Carburant</span><b>Diesel</b></div>
-                  <div class="mob-spec-row"><span>Transmission</span><b>Automatique</b></div>
-                  <div class="mob-spec-row"><span>Capacité</span><b>5 Places</b></div>
-                </div>
-                <div class="mob-spec-feats">
-                  <div>Motorisation Diesel BlueHDi automatique</div>
-                  <div>Carrosserie 5 portes</div>
-                  <div>Jantes alliage 18 pouces</div>
-                  <div>Écran tactile i-Cockpit avec Apple CarPlay / Android Auto</div>
-                  <div>Climatisation automatique</div>
-                  <div>Caméra de recul + radars de stationnement</div>
-                  <div>Régulateur de vitesse adaptatif</div>
-                  <div>Feux LED signature</div>
-                </div>
-              </details>
-            </div>
-          </div>
-        </div>
-        <button class="mob-nav next" onclick="document.getElementById('mobTrack').scrollBy({left:250,behavior:'smooth'})" aria-label="Véhicule suivant">›</button>
+        <div class="rentabilite" style="margin-top:1.5rem">
+          <span class="rbadge">Diaspora en séjour</span>
+          <span class="rbadge">Dirigeants & entrepreneurs</span>
+          <span class="rbadge">Entreprises & partenaires</span>
+          <span class="rbadge">Familles</span>
+          <span class="rbadge">Événements privés</span>
         </div>
 
-        <div class="mob-feats">
-          <div class="mob-feat">Livraison à votre hôtel ou domicile</div>
-          <div class="mob-feat">Contrat de location sécurisé</div>
-          <div class="mob-feat">Véhicules récents et assurés</div>
-          <div class="mob-feat">Assistance disponible 24h/24</div>
-          <div class="mob-feat">Option chauffeur privé</div>
-          <div class="mob-feat">Tarifs transparents, sans surprise</div>
+        <div class="act-taghit" style="margin-top:2rem">
+          <div class="act-taghit-photo">
+            <img src="img/vehicules/maybach-exterieur.jpg" alt="Mercedes-Benz Classe V Maybach avec chauffeur privé à Alger" loading="lazy">
+            <img src="img/vehicules/maybach-interieur.jpg" alt="Intérieur cuir rouge de la Mercedes-Benz Classe V Maybach" loading="lazy">
+            <div class="photo-overlay-l"></div>
+          </div>
+          <div class="act-taghit-body">
+            <div>
+              <div class="offre-inclus">
+                <div class="offre-inclus-head">Le service comprend</div>
+                <div class="inclus-list">
+                  <div class="inclus-item">
+                    <span class="inclus-check">✓</span>
+                    Mercedes-Benz Classe V Maybach
+                  </div>
+                  <div class="inclus-item">
+                    <span class="inclus-check">✓</span>
+                    Chauffeur privé dédié
+                  </div>
+                  <div class="inclus-item">
+                    <span class="inclus-check">✓</span>
+                    Mise à disposition à Alger, selon votre programme
+                  </div>
+                  <div class="inclus-item">
+                    <span class="inclus-check">✓</span>
+                    Déplacements privés et professionnels
+                  </div>
+                  <div class="inclus-item">
+                    <span class="inclus-check">✓</span>
+                    Transferts aéroport sur demande
+                  </div>
+                  <div class="inclus-item">
+                    <span class="inclus-check">✓</span>
+                    Mise à disposition pour plusieurs heures ou plusieurs jours
+                  </div>
+                  <div class="inclus-item">
+                    <span class="inclus-check">✓</span>
+                    Déplacements en dehors d'Alger organisables sur demande
+                  </div>
+                </div>
+              </div>
+
+              <div class="offre-exclus">
+                <strong>Sur mesure :</strong> chaque demande est étudiée individuellement, pour quelques heures, une demi-journée, une journée complète ou plusieurs jours. Le tarif est établi selon la durée, les horaires, le programme et les trajets souhaités.
+              </div>
+            </div>
+
+            <div class="offre-footer">
+              <div>
+                <div class="offre-price-n" style="font-size:1.5rem">Sur devis</div>
+                <div class="offre-price-l">Tarif selon durée, programme et trajets</div>
+              </div>
+              <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20le%20chauffeur%20priv%C3%A9%20avec%20la%20Classe%20V%20Maybach." class="btn-or" target="_blank">
+                Réserver mon chauffeur privé
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- ── OFFRE 4 : ACTIVITÉS ── -->
-      <div class="offre offre-act" style="padding:3rem;">
+      <!-- ── OFFRE 4 : SÉJOUR DÉSERT (TAGHIT) ── -->
+      <div class="offre offre-act" style="padding:3rem" id="taghit">
         <div class="mob-header">
           <div class="mob-header-left">
             <div class="offre-kicker">Offre 04</div>
-            <h3 class="offre-title">Activités & Expériences</h3>
+            <h3 class="offre-title">Séjour Désert à Taghit</h3>
             <p class="offre-pitch" style="max-width:480px;margin-bottom:0">
-              Votre séjour ne s'arrête pas au bien ou au véhicule. Nous organisons aussi vos moments forts sur place : sorties en mer, jet ski et quad à Alger et Béjaïa, et une évasion complète dans le désert de Taghit.
+              À la frontière du grand Sahara, Taghit offre quatre jours de dépaysement total : dunes à perte de vue, oasis, gravures rupestres et nuits étoilées. Vol, hôtel, repas et activités sont organisés de bout en bout — vous n'avez qu'à embarquer.
             </p>
           </div>
         </div>
 
-        <div class="act-hero-wrap">
-          <img src="img/activites/act-hero.jpg" alt="Balade en bateau, jet ski et quad avec Algérie Prestige, Alger et Béjaïa" loading="lazy">
-          <div class="act-hero-tag">Alger & Béjaïa</div>
-        </div>
-
-        <div class="act-detail-grid">
-          <div class="act-detail">
-            <div class="act-card-loc">Alger & Béjaïa</div>
-            <div class="act-card-title">Balade en bateau</div>
-            <div class="act-card-desc">Longez la côte au fil de l'eau, entre criques isolées, falaises et plages inaccessibles par la route. À Alger comme à Béjaïa, la sortie s'adapte à vos envies : balade calme au coucher du soleil ou virée plus rythmée, toujours encadrée par des marins locaux.</div>
-            <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20une%20balade%20en%20bateau." class="act-card-cta">Réserver une sortie →</a>
-          </div>
-
-          <div class="act-detail">
-            <div class="act-card-loc">Alger & Béjaïa</div>
-            <div class="act-card-title">Jet Ski</div>
-            <div class="act-card-desc">Sur les eaux d'Alger comme de Béjaïa, embarquez sur nos jet skis récents et rigoureusement entretenus pour filer sur la Méditerranée. Novice ou habitué des sensations fortes, vous repartez avec la même promesse : liberté totale face à la mer, sans permis bateau à présenter.</div>
-            <div class="act-card-feats">
-              <span>Aucun permis requis</span>
-              <span>Gilets & équipements fournis</span>
-            </div>
-            <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20jet%20ski%20%C3%A0%20Alger%20ou%20B%C3%A9ja%C3%AFa." class="act-card-cta">Réserver →</a>
-          </div>
-
-          <div class="act-detail">
-            <div class="act-card-loc">Alger & Béjaïa</div>
-            <div class="act-card-title">Quad</div>
-            <div class="act-card-desc">Sortez des sentiers battus à bord d'un quad tout-terrain, entre pistes côtières et arrière-pays, encadré par un guide local. Une manière plus brute de découvrir le littoral, entre poussière, virages et vues dégagées sur la mer.</div>
-            <div class="act-card-feats">
-              <span>Casque & équipement fournis</span>
-              <span>Encadrement par un guide</span>
-            </div>
-            <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20une%20sortie%20quad." class="act-card-cta">Réserver →</a>
-          </div>
-        </div>
-
-        <div class="act-divider"><span>Et aussi, une évasion plus longue</span></div>
-
-        <div class="act-taghit">
+        <div class="act-taghit" style="margin-top:2rem">
           <div class="act-taghit-photo">
             <img src="img/activites/taghit-1.jpg" alt="Formations rocheuses au coucher du soleil, désert de Taghit" loading="lazy">
             <img src="img/activites/taghit-2.jpg" alt="Dunes de sable du désert de Taghit" loading="lazy">
@@ -1678,11 +1595,6 @@ footer {
           </div>
           <div class="act-taghit-body">
             <div>
-              <div class="offre-kicker">Séjour désert</div>
-              <h3 class="offre-title" style="font-size:1.6rem">Taghit, entre dunes et oasis</h3>
-              <p class="offre-pitch" style="max-width:460px">
-                À la frontière du grand Sahara, Taghit offre quatre jours de dépaysement total : dunes à perte de vue, oasis, gravures rupestres et nuits étoilées. Vol, hôtel, repas et activités sont organisés de bout en bout — vous n'avez qu'à embarquer.
-              </p>
 
               <div class="offre-inclus">
                 <div class="offre-inclus-head">Ce que comprend le forfait</div>
@@ -2219,10 +2131,10 @@ footer {
     <div class="footer-col">
       <div class="footer-col-h">Nos offres</div>
       <ul>
-        <li><a href="#services">Offre Excellence</a></li>
+        <li><a href="#offre-excellence">Offre Excellence</a></li>
         <li><a href="#services">Gestion Immobilière</a></li>
-        <li><a href="#services">Mobilité Premium</a></li>
-        <li><a href="#services">Activités & Expériences</a></li>
+        <li><a href="#chauffeur-maybach">Chauffeur Privé Maybach</a></li>
+        <li><a href="#taghit">Séjour à Taghit</a></li>
       </ul>
     </div>
     <div class="footer-col">
