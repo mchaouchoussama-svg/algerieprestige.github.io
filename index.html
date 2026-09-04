@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Algérie Prestige — Conciergerie Privée pour la Diaspora Algérienne</title>
-<meta name="description" content="Conciergerie privée pour la diaspora algérienne : achat immobilier sécurisé, gestion locative, mobilité premium. Basés à Alger, disponibles 7j/7.">
-<meta property="og:title" content="Algérie Prestige — Conciergerie Privée pour la Diaspora Algérienne">
-<meta property="og:description" content="Achat immobilier, gestion locative, mobilité : nous intervenons à votre place sur le terrain en Algérie, avec un suivi transparent à chaque étape.">
+<title>Algérie Prestige : Conciergerie Privée pour la Diaspora Algérienne</title>
+<meta name="description" content="Conciergerie privée pour la diaspora algérienne : achat immobilier sécurisé, gestion locative, chauffeur privé. Basés à Alger, disponibles 7j/7.">
+<meta property="og:title" content="Algérie Prestige : Conciergerie Privée pour la Diaspora Algérienne">
+<meta property="og:description" content="Achat immobilier, gestion locative, chauffeur privé : nous intervenons à votre place sur le terrain en Algérie, avec un suivi transparent à chaque étape.">
 <meta property="og:image" content="https://algerieprestige.com/img/brand/og-image.jpg">
 <meta property="og:url" content="https://algerieprestige.com/">
 <meta property="og:type" content="website">
@@ -281,7 +281,7 @@ p { color:var(--txt-m); line-height:1.85; }
 /* HERO STATS */
 .hero-stats {
   position:relative; z-index:1;
-  display:grid; grid-template-columns:repeat(4,1fr);
+  display:grid; grid-template-columns:repeat(3,1fr);
   border-top:1px solid var(--bord);
   opacity:0; animation:fadeUp .9s 1s forwards;
 }
@@ -531,7 +531,7 @@ p { color:var(--txt-m); line-height:1.85; }
   border:1px solid var(--bord); padding:3px 10px;
 }
 
-/* ─── OFFRE 3 Mobilité ─── */
+/* ─── OFFRE 3 Chauffeur Privé ─── */
 .offre-mob { padding:3rem; }
 
 .mob-header {
@@ -597,24 +597,6 @@ p { color:var(--txt-m); line-height:1.85; }
   font-weight:600; padding:5px 12px;
 }
 
-/* Hero banner (bateau/jet ski/quad) */
-.act-hero-wrap { position:relative; overflow:hidden; height:340px; margin-bottom:2px; }
-.act-hero-wrap img {
-  width:100%; height:100%; object-fit:cover; object-position:center 42%;
-}
-.act-hero-tag {
-  position:absolute; bottom:1rem; left:1rem;
-  background:rgba(10,10,10,.55); backdrop-filter:blur(4px);
-  color:var(--or); font-size:.58rem; letter-spacing:.28em; text-transform:uppercase;
-  padding:7px 16px; border:1px solid var(--bord-2);
-}
-
-.act-detail-grid {
-  display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
-  background:var(--bord); border:1px solid var(--bord); margin-bottom:2.5rem;
-}
-.act-detail { background:var(--noir-2); padding:1.75rem; display:flex; flex-direction:column; }
-
 .act-divider {
   display:flex; align-items:center; gap:1rem;
   margin:0 0 2rem; color:var(--txt-d);
@@ -635,15 +617,11 @@ p { color:var(--txt-m); line-height:1.85; }
 
 @media (max-width:860px) {
   .act-grid { grid-template-columns:1fr; }
-  .act-detail-grid { grid-template-columns:1fr; }
-  .act-hero-wrap { height:auto; aspect-ratio:3.01/1; }
   .act-taghit { grid-template-columns:1fr; }
   .act-taghit-photo { height:260px; }
 }
 @media (max-width:600px) {
   .offre-act { padding:1.5rem !important; }
-  .act-hero-wrap { height:auto; aspect-ratio:3.01/1; }
-  .act-detail { padding:1.35rem; }
   .act-taghit-body { padding:1.75rem !important; }
   .mob-header { flex-direction:column; }
 }
@@ -835,6 +813,7 @@ p { color:var(--txt-m); line-height:1.85; }
 /* Donut */
 .donut-card {
   background:var(--s1); border:1px solid var(--bord); padding:2rem;
+  grid-column:1/-1;
   transition:border-color .25s;
 }
 .donut-card:hover { border-color:var(--bord-2); }
@@ -1231,17 +1210,17 @@ footer {
 
   <div class="hero-content">
     <div class="eyebrow hero-tag">
-      Basé à Alger · Depuis août 2025 · 130 familles accompagnées
+      Basé à Alger · Depuis août 2025 · 140 familles accompagnées
     </div>
 
     <h1 class="hero-h1">
       Votre patrimoine<br>
       en Algérie,<br>
-      <em>géré avec l'excellence<br>que vous méritez.</em>
+      <em>accompagné avec exigence<br>et discrétion.</em>
     </h1>
 
     <p class="hero-p">
-      Achat immobilier, gestion locative, mobilité : nous intervenons à votre place sur le terrain en Algérie, avec un processus contractuel strict et un suivi transparent à chaque étape.
+      Achat immobilier, gestion locative, chauffeur privé : nous intervenons à votre place sur le terrain en Algérie, avec un processus contractuel strict et un suivi transparent à chaque étape.
     </p>
 
     <div class="hero-promise">
@@ -1261,12 +1240,8 @@ footer {
 
   <div class="hero-stats">
     <div class="hs">
-      <div class="hs-n"><span class="counter" data-target="130">0</span><sup>+</sup></div>
+      <div class="hs-n"><span class="counter" data-target="140">0</span><sup>+</sup></div>
       <div class="hs-l">Familles accompagnées</div>
-    </div>
-    <div class="hs">
-      <div class="hs-n"><span class="counter" data-target="875">0</span><sup>K€</sup></div>
-      <div class="hs-l">Économisés en négociation</div>
     </div>
     <div class="hs">
       <div class="hs-n"><span class="counter" data-target="100">0</span><sup>%</sup></div>
@@ -1286,7 +1261,7 @@ footer {
     <span class="mq-item"><b></b>Triple vérification juridique</span>
     <span class="mq-item"><b></b>Votre notaire, pas celui du vendeur</span>
     <span class="mq-item"><b></b>Visites déléguées filmées en 4K</span>
-    <span class="mq-item"><b></b>130 familles depuis août 2025</span>
+    <span class="mq-item"><b></b>140 familles depuis août 2025</span>
     <span class="mq-item"><b></b>Clients depuis France, Canada, Belgique, Suisse</span>
     <span class="mq-item"><b></b>Rapport sous 24h</span>
     <span class="mq-item"><b></b>Aucun litige à ce jour</span>
@@ -1294,7 +1269,7 @@ footer {
     <span class="mq-item"><b></b>Triple vérification juridique</span>
     <span class="mq-item"><b></b>Votre notaire, pas celui du vendeur</span>
     <span class="mq-item"><b></b>Visites déléguées filmées en 4K</span>
-    <span class="mq-item"><b></b>130 familles depuis août 2025</span>
+    <span class="mq-item"><b></b>140 familles depuis août 2025</span>
     <span class="mq-item"><b></b>Clients depuis France, Canada, Belgique, Suisse</span>
     <span class="mq-item"><b></b>Rapport sous 24h</span>
     <span class="mq-item"><b></b>Aucun litige à ce jour</span>
@@ -1312,13 +1287,13 @@ footer {
     <div class="act-grid reveal">
       <div class="act-card">
         <div class="act-card-photo">
-          <img src="img/activites/villa-excellence.jpg" alt="Offre Excellence — accompagnement achat immobilier" loading="lazy">
+          <img src="img/activites/villa-excellence.jpg" alt="Offre Excellence : accompagnement achat immobilier" loading="lazy">
           <div class="bs-badge">Best-seller</div>
         </div>
         <div class="act-card-body">
           <div class="act-card-loc">Offre 01 · Immobilier</div>
           <div class="act-card-title">Offre Excellence</div>
-          <div class="act-card-desc">Achat immobilier accompagné de bout en bout : recherche, visites déléguées, négociation et sécurisation juridique. 130 familles déjà accompagnées, 875 000€ économisés en négociation.</div>
+          <div class="act-card-desc">Achat immobilier accompagné de bout en bout : recherche, visites déléguées, négociation et sécurisation juridique. 140 familles déjà accompagnées depuis août 2025.</div>
           <div class="act-card-feats">
             <span>1 000€ / dossier</span>
             <span>Tout inclus</span>
@@ -1351,7 +1326,7 @@ footer {
 <section id="services" class="sec" style="padding-bottom:2rem;">
   <div class="container">
     <div class="sec-head reveal">
-      <div class="eyebrow">Nos trois offres</div>
+      <div class="eyebrow">Nos quatre offres</div>
       <h2>Des services pensés<br><em>pour la diaspora.</em></h2>
       <p>Chaque offre est conçue pour répondre à un besoin précis. Tout commence par un appel de 20 minutes, sans engagement.</p>
     </div>
@@ -1500,9 +1475,9 @@ footer {
         <div class="mob-header">
           <div class="mob-header-left">
             <div class="offre-kicker">Offre 03</div>
-            <h3 class="offre-title">Chauffeur Privé — Classe V Maybach</h3>
+            <h3 class="offre-title">Chauffeur Privé</h3>
             <p class="offre-pitch" style="max-width:480px;margin-bottom:0">
-              À Alger, bénéficiez d'un véhicule haut de gamme avec chauffeur privé, entièrement dédié à vos déplacements. Pensé pour une clientèle exigeante, ce service vous permet de disposer d'une Mercedes-Benz Classe V Maybach avec chauffeur, selon votre programme et la durée de votre séjour. Que vous soyez à Alger pour quelques heures, une journée ou plusieurs jours, votre chauffeur vous accompagne avec discrétion, ponctualité et professionnalisme.
+              Une Mercedes-Benz Classe V Maybach avec chauffeur privé, mise à votre disposition selon votre programme. À Alger, profitez d'un service pensé pour vous déplacer dans un environnement confortable, discret et entièrement organisé. Votre chauffeur vous accompagne selon vos horaires et vos besoins, pour quelques heures, une journée ou plusieurs jours.
             </p>
           </div>
         </div>
@@ -1567,8 +1542,8 @@ footer {
                 <div class="offre-price-n" style="font-size:1.5rem">Sur devis</div>
                 <div class="offre-price-l">Tarif selon durée, programme et trajets</div>
               </div>
-              <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20le%20chauffeur%20priv%C3%A9%20avec%20la%20Classe%20V%20Maybach." class="btn-or" target="_blank">
-                Réserver mon chauffeur privé
+              <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20chauffeur%20priv%C3%A9%20avec%20la%20Classe%20V%20Maybach." class="btn-or" target="_blank">
+                Réserver un chauffeur privé
               </a>
             </div>
           </div>
@@ -1580,9 +1555,9 @@ footer {
         <div class="mob-header">
           <div class="mob-header-left">
             <div class="offre-kicker">Offre 04</div>
-            <h3 class="offre-title">Séjour Désert à Taghit</h3>
+            <h3 class="offre-title">Séjour à Taghit</h3>
             <p class="offre-pitch" style="max-width:480px;margin-bottom:0">
-              À la frontière du grand Sahara, Taghit offre quatre jours de dépaysement total : dunes à perte de vue, oasis, gravures rupestres et nuits étoilées. Vol, hôtel, repas et activités sont organisés de bout en bout — vous n'avez qu'à embarquer.
+              Une parenthèse au cœur du Sahara. Algérie Prestige organise votre séjour à Taghit dans les moindres détails : vol, hôtel, repas et activités sont coordonnés de bout en bout, pour une découverte du désert dans un cadre confortable et accompagné.
             </p>
           </div>
         </div>
@@ -1658,33 +1633,6 @@ footer {
 
     <div class="preuves-cols">
 
-      <div class="chart-card reveal">
-        <div class="chart-title">Économies réalisées par type de bien</div>
-        <div class="chart-sub">Négociation vs prix affiché · Moyennes constatées</div>
-        <div class="bar-chart">
-          <div class="bar-row">
-            <div class="bar-lbl">Appartements</div>
-            <div class="bar-track"><div class="bar-fill" data-w="78"></div></div>
-            <div class="bar-val">-12,4%</div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-lbl">Villas</div>
-            <div class="bar-track"><div class="bar-fill" data-w="65"></div></div>
-            <div class="bar-val">-9,8%</div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-lbl">Terrains</div>
-            <div class="bar-track"><div class="bar-fill" data-w="88"></div></div>
-            <div class="bar-val">-15,1%</div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-lbl">Commerciaux</div>
-            <div class="bar-track"><div class="bar-fill" data-w="55"></div></div>
-            <div class="bar-val">-7,2%</div>
-          </div>
-        </div>
-      </div>
-
       <div class="donut-card reveal">
         <div class="chart-title">Répartition des prestations</div>
         <div class="chart-sub">Tous services · Depuis août 2025</div>
@@ -1695,24 +1643,21 @@ footer {
               stroke-dasharray="200 89" stroke-dashoffset="289"
               transform="rotate(-90 60 60)" class="darc" style="transition:stroke-dashoffset 2s ease"/>
             <circle cx="60" cy="60" r="46" fill="none" stroke="#6E5420" stroke-width="15"
-              stroke-dasharray="52 237" stroke-dashoffset="89"
+              stroke-dasharray="89 200" stroke-dashoffset="89"
               transform="rotate(-90 60 60)" class="darc" style="transition:stroke-dashoffset 2s ease .25s"/>
-            <circle cx="60" cy="60" r="46" fill="none" stroke="#355248" stroke-width="15"
-              stroke-dasharray="37 252" stroke-dashoffset="37"
-              transform="rotate(-90 60 60)" class="darc" style="transition:stroke-dashoffset 2s ease .5s"/>
             <text x="60" y="53" text-anchor="middle" fill="#CCA452"
-              font-family="Cormorant Garamond,serif" font-size="14" font-weight="300">130+</text>
+              font-family="Cormorant Garamond,serif" font-size="14" font-weight="300">140+</text>
             <text x="60" y="64" text-anchor="middle" fill="#8A8278"
-              font-family="DM Sans,sans-serif" font-size="6.5" letter-spacing="1">EXCELLENCE</text>
+              font-family="DM Sans,sans-serif" font-size="6.5" letter-spacing="1">DOSSIERS</text>
             <text x="60" y="74" text-anchor="middle" fill="#5C5650"
-              font-family="DM Sans,sans-serif" font-size="6" letter-spacing="1">+ AUTRES</text>
+              font-family="DM Sans,sans-serif" font-size="6" letter-spacing="1">TRAITÉS</text>
           </svg>
           <div class="donut-legend">
             <div class="legend-row">
               <span class="legend-dot" style="background:#B8903A"></span>
               <span>Offre Excellence</span>
               <span class="legend-pct" style="display:flex;flex-direction:column;align-items:flex-end;gap:1px">
-                <span style="color:var(--or)">130 dossiers</span>
+                <span style="color:var(--or)">140 dossiers</span>
                 <span style="font-size:.56rem;color:var(--txt-d)">Accompagnements immobiliers</span>
               </span>
             </div>
@@ -1722,14 +1667,6 @@ footer {
               <span class="legend-pct" style="display:flex;flex-direction:column;align-items:flex-end;gap:1px">
                 <span style="color:var(--or)">10 biens</span>
                 <span style="font-size:.56rem;color:var(--txt-d)">Sous gestion active</span>
-              </span>
-            </div>
-            <div class="legend-row">
-              <span class="legend-dot" style="background:#355248"></span>
-              <span>Mobilité Premium</span>
-              <span class="legend-pct" style="display:flex;flex-direction:column;align-items:flex-end;gap:1px">
-                <span style="color:var(--or)">65 locations</span>
-                <span style="font-size:.56rem;color:var(--txt-d)">Véhicules réservés</span>
               </span>
             </div>
           </div>
@@ -1753,7 +1690,7 @@ footer {
           <text x="6" y="119" fill="#5C5650" font-size="9" font-family="DM Sans">0</text>
           <text x="6" y="87"  fill="#5C5650" font-size="9" font-family="DM Sans">40</text>
           <text x="6" y="54"  fill="#5C5650" font-size="9" font-family="DM Sans">85</text>
-          <text x="6" y="24"  fill="#5C5650" font-size="9" font-family="DM Sans">130</text>
+          <text x="6" y="24"  fill="#5C5650" font-size="9" font-family="DM Sans">140</text>
           <path d="M38,113 C120,110 200,104 300,92 C400,78 480,58 580,36 C660,20 720,16 775,14 L775,115 Z"
             fill="url(#gGrad)" id="gFill" style="opacity:0;transition:opacity 1s ease .4s"/>
           <path id="gLine"
@@ -1891,7 +1828,7 @@ footer {
           </div>
         </div>
         <div class="acc-body">
-          <p>Dès que vous validez un bien, nous négocions directement avec le vendeur. Nos clients économisent en moyenne 8 à 15% sur le prix affiché.</p>
+          <p>Dès que vous validez un bien, nous négocions directement avec le vendeur, dans votre seul intérêt et sans intermédiaire.</p>
           <div class="acc-livrables">
             <div class="acc-livrable">Compte rendu WhatsApp après chaque échange</div>
             <div class="acc-livrable">Proposition de prix finale avec recommandation argumentée</div>
@@ -2004,7 +1941,7 @@ footer {
           </div>
           <div class="trust-item">
             <div class="trust-check">✓</div>
-            130 familles accompagnées, 875 000€ économisés
+            140 familles accompagnées depuis août 2025
           </div>
           <div class="trust-item">
             <div class="trust-check">✓</div>
@@ -2025,38 +1962,35 @@ footer {
     </div>
     <div class="t-grid reveal">
       <div class="tcard">
-        <div class="tcard-badge">Vérifié</div>
         <div class="tcard-stars">★★★★★</div>
-        <div class="tcard-text">"On cherchait depuis deux ans. En 67 jours, ils ont trouvé l'appartement, négocié le prix et accompagné toute la signature. On a économisé l'équivalent de 1,4 million de DA sur le prix demandé."</div>
+        <div class="tcard-text">"Nous vivons à l'étranger et n'aurions pas pu gérer cet achat seuls. Chaque visite était filmée, chaque étape expliquée avant d'être validée. Nous avons signé en toute confiance."</div>
         <div class="tcard-author">
-          <div class="tcard-av"><img src="https://images.pexels.com/photos/37218479/pexels-photo-37218479.jpeg?w=100" alt="Karim B." loading="lazy"></div>
+          <div class="tcard-av">E</div>
           <div>
-            <div class="tcard-name">Famille Karim B.</div>
-            <div class="tcard-loc">Paris · Appartement à Alger</div>
+            <div class="tcard-name">Famille accompagnée</div>
+            <div class="tcard-loc">Offre Excellence</div>
           </div>
         </div>
       </div>
       <div class="tcard">
-        <div class="tcard-badge">Vérifié</div>
         <div class="tcard-stars">★★★★★</div>
-        <div class="tcard-text">"Ce que j'ai apprécié, c'est la transparence. Ils ont détecté un problème sur un bien avant que je signe quoi que ce soit. D'autres auraient fermé les yeux pour toucher leur commission. Eux non."</div>
+        <div class="tcard-text">"Mon bien est suivi sans que j'aie à intervenir. Je reçois un rapport chaque mois et les loyers arrivent régulièrement. C'est exactement la tranquillité que je cherchais."</div>
         <div class="tcard-author">
-          <div class="tcard-av"><img src="https://images.pexels.com/photos/23496671/pexels-photo-23496671.jpeg?w=100" alt="Samira M." loading="lazy"></div>
+          <div class="tcard-av">G</div>
           <div>
-            <div class="tcard-name">Samira M.</div>
-            <div class="tcard-loc">Lyon · Villa à Tipaza</div>
+            <div class="tcard-name">Client Algérie Prestige</div>
+            <div class="tcard-loc">Gestion Immobilière</div>
           </div>
         </div>
       </div>
       <div class="tcard">
-        <div class="tcard-badge">Vérifié</div>
         <div class="tcard-stars">★★★★★</div>
-        <div class="tcard-text">"Mon appartement à Oran est géré depuis Montréal sans que j'aie rien à faire. Je reçois un rapport chaque mois, les loyers tombent régulièrement. Exactement la tranquillité que je voulais."</div>
+        <div class="tcard-text">"Le chauffeur nous attendait à l'aéroport, ponctuel et discret. Nous avons pu enchaîner nos rendez-vous sans nous soucier des trajets pendant tout le séjour."</div>
         <div class="tcard-author">
-          <div class="tcard-av"><img src="https://images.pexels.com/photos/7446948/pexels-photo-7446948.jpeg?w=100" alt="Yacine L." loading="lazy"></div>
+          <div class="tcard-av">C</div>
           <div>
-            <div class="tcard-name">Yacine L.</div>
-            <div class="tcard-loc">Montréal · Gestion à Oran</div>
+            <div class="tcard-name">Client diaspora</div>
+            <div class="tcard-loc">Chauffeur Privé</div>
           </div>
         </div>
       </div>
@@ -2133,7 +2067,7 @@ footer {
       <ul>
         <li><a href="#offre-excellence">Offre Excellence</a></li>
         <li><a href="#services">Gestion Immobilière</a></li>
-        <li><a href="#chauffeur-maybach">Chauffeur Privé Maybach</a></li>
+        <li><a href="#chauffeur-maybach">Chauffeur Privé</a></li>
         <li><a href="#taghit">Séjour à Taghit</a></li>
       </ul>
     </div>
@@ -2209,7 +2143,7 @@ const io = new IntersectionObserver(entries => {
   });
 },{threshold:.01, rootMargin:'0px 0px -5% 0px'});
 
-document.querySelectorAll('.reveal,.counter,.bar-chart,#gLine,.darc').forEach(el=>io.observe(el));
+document.querySelectorAll('.reveal,.counter,#gLine,.darc').forEach(el=>io.observe(el));
 
 /* Stagger */
 document.querySelectorAll('.pstep,.tcard,.engagement').forEach((el,i)=>
