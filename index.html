@@ -560,52 +560,6 @@ p { color:var(--txt-m); line-height:1.85; }
 .mob-nav.next { right:-19px; }
 
 /* ─── OFFRE 4 Activités ─── */
-.act-grid {
-  display:grid; grid-template-columns:1fr 1fr; gap:2px;
-  background:var(--bord); border:1px solid var(--bord); margin-bottom:2px;
-}
-.act-card { background:var(--noir-2); display:flex; flex-direction:column; }
-.act-card-photo { position:relative; height:310px; overflow:hidden; }
-.act-card-photo img {
-  width:100%; height:100%; object-fit:cover;
-  transition:transform .7s ease;
-}
-.act-card:hover .act-card-photo img { transform:scale(1.05); }
-.act-card-body { padding:1.75rem; display:flex; flex-direction:column; flex:1; }
-.act-card-loc {
-  font-size:.5rem; letter-spacing:.28em; text-transform:uppercase;
-  color:var(--or); margin-bottom:.6rem;
-}
-.act-card-title { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:400; margin-bottom:.65rem; color:var(--txt); }
-.act-card-desc { font-size:.74rem; color:var(--txt-m); line-height:1.75; margin-bottom:1rem; }
-.act-card-feats { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1.25rem; }
-.act-card-feats span {
-  font-size:.56rem; letter-spacing:.08em;
-  color:var(--txt-d); background:var(--s2); border:1px solid var(--bord);
-  padding:3px 9px;
-}
-.act-card-cta {
-  margin-top:auto; font-size:.66rem; letter-spacing:.08em; color:var(--or);
-  text-decoration:none; border-top:1px solid var(--bord); padding-top:.9rem;
-  transition:color .25s;
-}
-.act-card-cta:hover { color:var(--or-2); }
-.bs-badge {
-  position:absolute; top:.85rem; right:.85rem; z-index:2;
-  background:var(--or); color:var(--noir);
-  font-size:.56rem; letter-spacing:.14em; text-transform:uppercase;
-  font-weight:600; padding:5px 12px;
-}
-
-.act-divider {
-  display:flex; align-items:center; gap:1rem;
-  margin:0 0 2rem; color:var(--txt-d);
-  font-size:.58rem; letter-spacing:.22em; text-transform:uppercase;
-}
-.act-divider::before, .act-divider::after {
-  content:''; flex:1; height:1px; background:var(--bord-2);
-}
-
 .act-taghit {
   display:grid; grid-template-columns:1fr 1fr; min-height:480px;
   background:var(--noir-2); border:1px solid var(--bord);
@@ -616,7 +570,6 @@ p { color:var(--txt-m); line-height:1.85; }
 .act-taghit-body { padding:3rem; display:flex; flex-direction:column; justify-content:space-between; }
 
 @media (max-width:860px) {
-  .act-grid { grid-template-columns:1fr; }
   .act-taghit { grid-template-columns:1fr; }
   .act-taghit-photo { height:260px; }
 }
@@ -1155,6 +1108,54 @@ footer {
   .faq-cat-btn { border-left:none; border-bottom:2px solid transparent; padding:.5rem .1rem; }
 }
 </style>
+<script>document.documentElement.classList.add('ap-js');setTimeout(function(){if(!window.__apm)document.documentElement.classList.remove('ap-js')},4000);</script>
+<link rel="stylesheet" href="assets/ap-motion.css">
+<style>
+/* ═══ Vidéos d'offres · format vertical d'origine conservé ═══ */
+.offre-ex{grid-template-columns:minmax(0,1fr) 400px}
+.offre-ge{grid-template-columns:400px minmax(0,1fr)}
+.offre-ge .offre-body{order:0}
+.offre-ge .offre-media{order:-1}
+.offre-body{justify-content:space-between}
+.offre-media{display:flex;align-items:center;justify-content:center;background:var(--noir)}
+.offre-media .ap-video{width:100%}
+.act-taghit.has-video{grid-template-columns:360px minmax(0,1fr)}
+.offre-ctas{display:flex;flex-direction:column;align-items:flex-end;gap:.8rem}
+.offre-more{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--txt-d);border-bottom:1px solid var(--bord-2);padding-bottom:3px;transition:color .3s,border-color .3s}
+.offre-more:hover{color:var(--or-2);border-color:var(--or)}
+.ap-js .offre.ap-up{transition:opacity .9s var(--ap-ease) calc(var(--d,0) * 90ms),transform .9s var(--ap-ease) calc(var(--d,0) * 90ms),background .35s}
+@media (max-width:1024px){
+  .offre-ex,.offre-ge{grid-template-columns:1fr}
+  .offre-media,.offre-ge .offre-media{order:-1;height:auto;padding:1.75rem 0 0}
+  .offre-media .ap-video{width:min(100%,300px)}
+  .offre-ctas{align-items:flex-start}
+}
+@media (max-width:860px){
+  .act-taghit.has-video{grid-template-columns:1fr}
+  .act-taghit.has-video .offre-media{height:auto;padding:0 0 1.5rem}
+}
+
+/* ═══ Menu mobile ═══ */
+.nav-burger{display:none;position:relative;width:44px;height:44px;margin-left:.75rem;background:none;border:1px solid var(--bord-2);cursor:pointer;flex-shrink:0;transition:border-color .3s}
+.nav-burger:hover{border-color:var(--or)}
+.nav-burger span{position:absolute;left:12px;right:12px;height:1px;background:var(--or-2);transition:transform .45s var(--ap-ease),opacity .25s ease}
+.nav-burger span:nth-child(1){top:16px}.nav-burger span:nth-child(2){top:21px}.nav-burger span:nth-child(3){top:26px}
+.nav-burger[aria-expanded="true"] span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.nav-burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+#nav.menu-open{background:rgba(6,5,4,.98);border-color:var(--bord)}
+.ap-menu{position:fixed;left:0;right:0;top:0;z-index:99;padding:6rem 1.75rem 2.25rem;background:rgba(6,5,4,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--bord);visibility:hidden;opacity:0;transform:translateY(-14px);max-height:100vh;overflow-y:auto}
+.ap-menu.ap-open{visibility:visible;opacity:1;transform:none}
+.ap-menu ul{list-style:none;margin-bottom:1.75rem}
+.ap-menu li a{display:block;font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:300;color:var(--ivoire);padding:.85rem 0;border-bottom:1px solid var(--bord);opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .6s var(--ap-ease),color .25s}
+.ap-menu.ap-open li a{opacity:1;transform:none}
+.ap-menu.ap-open li:nth-child(1) a{transition-delay:.08s}.ap-menu.ap-open li:nth-child(2) a{transition-delay:.14s}.ap-menu.ap-open li:nth-child(3) a{transition-delay:.2s}.ap-menu.ap-open li:nth-child(4) a{transition-delay:.26s}.ap-menu.ap-open li:nth-child(5) a{transition-delay:.32s}
+.ap-menu li a:hover{color:var(--or-2)}
+.ap-menu .btn-or{display:inline-flex}
+@media (max-width:1024px){.nav-burger{display:block}}
+@media (max-width:640px){.nav-cta{display:none}.nav-burger{margin-left:0}}
+@media (min-width:1025px){.ap-menu{display:none}}
+</style>
 </head>
 <body>
 
@@ -1196,8 +1197,21 @@ footer {
     <li><a href="#preuves">Résultats</a></li>
     <li><a href="#temoignages">Témoignages</a></li>
   </ul>
-  <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20d%C3%A9marrer%20mon%20projet%20avec%20Alg%C3%A9rie%20Prestige." class="nav-cta" target="_blank">Démarrer mon projet</a>
+  <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20d%C3%A9marrer%20mon%20projet%20avec%20Alg%C3%A9rie%20Prestige." class="nav-cta" data-ap-btn target="_blank">Démarrer mon projet</a>
+  <button type="button" class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="apMenu"><span></span><span></span><span></span></button>
 </nav>
+
+<!-- MENU MOBILE -->
+<div class="ap-menu" id="apMenu" aria-hidden="true">
+  <ul>
+    <li><a href="#services">Nos offres</a></li>
+    <li><a href="#processus">Comment ça marche</a></li>
+    <li><a href="#preuves">Résultats</a></li>
+    <li><a href="#temoignages">Témoignages</a></li>
+    <li><a href="#faq">Questions fréquentes</a></li>
+  </ul>
+  <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20d%C3%A9marrer%20mon%20projet%20avec%20Alg%C3%A9rie%20Prestige." class="btn-or" data-ap-btn target="_blank" rel="noopener">Démarrer mon projet</a>
+</div>
 
 <!-- ═══════════ HERO ═══════════ -->
 <section id="hero">
@@ -1231,7 +1245,7 @@ footer {
     </div>
 
     <div class="hero-btns">
-      <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20d%C3%A9marrer%20mon%20projet%20avec%20Alg%C3%A9rie%20Prestige." class="btn-or" target="_blank">
+      <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20d%C3%A9marrer%20mon%20projet%20avec%20Alg%C3%A9rie%20Prestige." class="btn-or" data-ap-btn target="_blank">
         Démarrer mon projet
         <span class="arr"></span>
       </a>
@@ -1276,66 +1290,21 @@ footer {
   </div>
 </div>
 
-<!-- ═══════════ BEST-SELLERS ═══════════ -->
-<section id="bestsellers" class="sec" style="padding:4.5rem 0 1rem;">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:2.5rem;" class="reveal">
-      <div class="eyebrow" style="justify-content:center;margin-bottom:.75rem;">Les préférés de nos clients</div>
-      <h2>Nos best-sellers</h2>
-    </div>
-
-    <div class="act-grid reveal">
-      <div class="act-card">
-        <div class="act-card-photo">
-          <img src="img/activites/villa-excellence.jpg" alt="Offre Excellence : accompagnement achat immobilier" loading="lazy">
-          <div class="bs-badge">Best-seller</div>
-        </div>
-        <div class="act-card-body">
-          <div class="act-card-loc">Offre 01 · Immobilier</div>
-          <div class="act-card-title">Offre Excellence</div>
-          <div class="act-card-desc">Achat immobilier accompagné de bout en bout : recherche, visites déléguées, négociation et sécurisation juridique. 140 familles déjà accompagnées depuis août 2025.</div>
-          <div class="act-card-feats">
-            <span>1 000€ / dossier</span>
-            <span>Tout inclus</span>
-          </div>
-          <a href="#offre-excellence" class="act-card-cta">Découvrir l'offre →</a>
-        </div>
-      </div>
-
-      <div class="act-card">
-        <div class="act-card-photo">
-          <img src="img/activites/taghit-1.jpg" alt="Séjour désert à Taghit avec Algérie Prestige" loading="lazy">
-          <div class="bs-badge">Best-seller</div>
-        </div>
-        <div class="act-card-body">
-          <div class="act-card-loc">Offre 04 · Expérience</div>
-          <div class="act-card-title">Séjour à Taghit</div>
-          <div class="act-card-desc">Quatre jours entre dunes à perte de vue, oasis et nuits étoilées, aux portes du grand Sahara : vol, hôtel 4 étoiles, pension complète et activités organisés de bout en bout.</div>
-          <div class="act-card-feats">
-            <span>460€ / personne</span>
-            <span>4 jours / 3 nuits</span>
-          </div>
-          <a href="#taghit" class="act-card-cta">Découvrir le séjour →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ═══════════ SERVICES ═══════════ -->
 <section id="services" class="sec" style="padding-bottom:2rem;">
   <div class="container">
     <div class="sec-head reveal">
-      <div class="eyebrow">Nos quatre offres</div>
-      <h2>Des services pensés<br><em>pour la diaspora.</em></h2>
+      <div class="eyebrow">Nos offres</div>
+      <h2 data-ap-title>Des services pensés<br><em>pour la diaspora.</em></h2>
       <p>Chaque offre est conçue pour répondre à un besoin précis. Tout commence par un appel de 20 minutes, sans engagement.</p>
     </div>
 
-    <div class="offres reveal">
+    <div class="offres">
 
       <!-- ── OFFRE 1 : EXCELLENCE ── -->
-      <div class="offre offre-ex" id="offre-excellence">
+      <div class="offre offre-ex" data-ap-up id="offre-excellence">
         <div class="offre-body">
+          <div class="offre-main">
             <div class="offre-kicker">Offre 01</div>
             <h3 class="offre-title">Offre Excellence</h3>
             <p class="offre-pitch">
@@ -1391,20 +1360,18 @@ footer {
               <div class="offre-price-n">1 000€</div>
               <div class="offre-price-l">par dossier · tout inclus</div>
             </div>
-            <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20l%27Offre%20Excellence%20%281%20000%E2%82%AC%29%20pour%20un%20achat%20immobilier%20en%20Alg%C3%A9rie." class="btn-or" target="_blank">
+            <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20l%27Offre%20Excellence%20%281%20000%E2%82%AC%29%20pour%20un%20achat%20immobilier%20en%20Alg%C3%A9rie." class="btn-or" data-ap-btn target="_blank">
               Démarrer ce projet
             </a>
           </div>
         </div>
-        <div class="offre-photo">
-          <img src="img/activites/villa-excellence.jpg" alt="Villa accompagnée par Algérie Prestige" loading="lazy">
-          <div class="photo-overlay-r"></div>
-        </div>
+        <div class="offre-media"><div class="ap-video" data-poster="assets/video/excellence-poster.jpg" data-hd="assets/video/excellence-hd.mp4" data-sd="assets/video/excellence-sd.mp4"><video muted loop playsinline preload="none" aria-label="Visite d'une villa avec piscine"></video></div></div>
       </div>
 
       <!-- ── OFFRE 2 : GESTION ── -->
-      <div class="offre offre-ge">
+      <div class="offre offre-ge" data-ap-up id="offre-gestion">
         <div class="offre-body">
+          <div class="offre-main">
             <div class="offre-kicker">Offre 02</div>
             <h3 class="offre-title">Gestion Immobilière</h3>
             <p class="offre-pitch">
@@ -1459,23 +1426,82 @@ footer {
               <div class="offre-price-n">1 000€ <span style="font-size:.95rem;color:var(--txt-d)">+ 20%</span></div>
               <div class="offre-price-l">onboarding unique · puis 20% de commission mensuelle</div>
             </div>
-            <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20confier%20mon%20bien%20en%20gestion%20locative." class="btn-or" target="_blank">
+            <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20confier%20mon%20bien%20en%20gestion%20locative." class="btn-or" data-ap-btn target="_blank">
               Confier mon bien
             </a>
           </div>
         </div>
-        <div class="offre-photo">
-          <img src="img/activites/salon-gestion.jpg" alt="Appartement mis en location par Algérie Prestige" loading="lazy">
-          <div class="photo-overlay-l"></div>
-        </div>
+        <div class="offre-media"><div class="ap-video" data-poster="assets/video/gestion-poster.jpg" data-hd="assets/video/gestion-hd.mp4" data-sd="assets/video/gestion-sd.mp4"><video muted loop playsinline preload="none" aria-label="Visite d'un appartement meublé"></video></div></div>
       </div>
 
-      <!-- ── OFFRE 3 : CHAUFFEUR PRIVÉ MAYBACH ── -->
-      <div class="offre offre-act" style="padding:3rem" id="chauffeur-maybach">
+      <!-- ── OFFRE 3 : ONE TWO THREE ── -->
+      <div class="offre offre-ex offre-123" data-ap-up id="offre-onetwothree">
+        <div class="offre-body">
+          <div class="offre-main">
+            <div class="offre-kicker">Offre 03</div>
+            <h3 class="offre-title" data-ap-title>ONE TWO THREE</h3>
+            <p class="offre-pitch">
+              Tu reviens vivre en Algérie. Nous recherchons, visitons et négocions ton futur appartement à louer à Alger pendant que tu es encore à l'étranger.
+            </p>
+
+            <div class="offre-inclus">
+              <div class="offre-inclus-head">Ce que tu obtiens concrètement</div>
+              <div class="inclus-list">
+                <div class="inclus-item">
+                  <span class="inclus-check">✓</span>
+                  Recherche personnalisée selon ton budget et tes critères
+                </div>
+                <div class="inclus-item">
+                  <span class="inclus-check">✓</span>
+                  Jusqu'à 6 visites physiques, à Alger et sa périphérie
+                </div>
+                <div class="inclus-item">
+                  <span class="inclus-check">✓</span>
+                  Vidéo et caractéristiques de chaque logement visité
+                </div>
+                <div class="inclus-item">
+                  <span class="inclus-check">✓</span>
+                  Échanges avec les propriétaires et aide à la négociation
+                </div>
+                <div class="inclus-item">
+                  <span class="inclus-check">✓</span>
+                  Accompagnement jusqu'à la signature du bail
+                </div>
+              </div>
+            </div>
+
+            <div class="offre-exclus">
+              <strong>Non inclus :</strong> le loyer, la caution et les éventuels frais de tiers restent à ta charge. Algérie Prestige ne garantit pas l'obtention d'un logement.
+            </div>
+
+            <div class="offre-delais">
+              <div class="delai"><strong>3 mois</strong>Durée de l'accompagnement</div>
+              <div class="delai"><strong>6</strong>Visites physiques incluses, au maximum</div>
+              <div class="delai"><strong>Alger</strong>Et sa périphérie</div>
+            </div>
+          </div>
+          <div class="offre-footer">
+            <div>
+              <div class="offre-price-n">499€</div>
+              <div class="offre-price-l">accompagnement de 3 mois</div>
+            </div>
+            <div class="offre-ctas">
+              <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20trouver%20mon%20logement%20%C3%A0%20Alger%20avec%20l%27offre%20ONE%20TWO%20THREE%20%28499%20%E2%82%AC%29." class="btn-or" data-ap-btn target="_blank" rel="noopener">
+                Je souhaite trouver mon logement
+              </a>
+              <a href="location-appartement-alger.html" class="offre-more">Voir le détail de l'offre</a>
+            </div>
+          </div>
+        </div>
+        <div class="offre-media"><div class="ap-video" data-poster="assets/video/onetwothree-poster.jpg" data-hd="assets/video/onetwothree-hd.mp4" data-sd="assets/video/onetwothree-sd.mp4"><video muted loop playsinline preload="none" aria-label="Visite d'un appartement à louer"></video></div></div>
+      </div>
+
+      <!-- ── OFFRE 4 : CHAUFFEUR PRIVÉ MAYBACH ── -->
+      <div class="offre offre-act" data-ap-up style="padding:3rem" id="chauffeur-maybach">
         <div class="mob-header">
           <div class="mob-header-left">
-            <div class="offre-kicker">Offre 03</div>
-            <h3 class="offre-title">Chauffeur Privé</h3>
+            <div class="offre-kicker">Offre 04</div>
+            <h3 class="offre-title" data-ap-title>Chauffeur Privé</h3>
             <p class="offre-pitch" style="max-width:480px;margin-bottom:0">
               Une Mercedes-Benz Classe V Maybach avec chauffeur privé, mise à votre disposition selon votre programme. À Alger, profitez d'un service pensé pour vous déplacer dans un environnement confortable, discret et entièrement organisé. Votre chauffeur vous accompagne selon vos horaires et vos besoins, pour quelques heures, une journée ou plusieurs jours.
             </p>
@@ -1490,12 +1516,8 @@ footer {
           <span class="rbadge">Événements privés</span>
         </div>
 
-        <div class="act-taghit" style="margin-top:2rem">
-          <div class="act-taghit-photo">
-            <img src="img/vehicules/maybach-exterieur.jpg" alt="Mercedes-Benz Classe V Maybach avec chauffeur privé à Alger" loading="lazy">
-            <img src="img/vehicules/maybach-interieur.jpg" alt="Intérieur cuir rouge de la Mercedes-Benz Classe V Maybach" loading="lazy">
-            <div class="photo-overlay-l"></div>
-          </div>
+        <div class="act-taghit has-video" style="margin-top:2rem">
+          <div class="offre-media"><div class="ap-video" data-poster="assets/video/chauffeur-poster.jpg" data-hd="assets/video/chauffeur-hd.mp4" data-sd="assets/video/chauffeur-sd.mp4"><video muted loop playsinline preload="none" aria-label="Mercedes-Benz Classe V Maybach avec chauffeur privé à Alger"></video></div></div>
           <div class="act-taghit-body">
             <div>
               <div class="offre-inclus">
@@ -1542,7 +1564,7 @@ footer {
                 <div class="offre-price-n" style="font-size:1.5rem">Sur devis</div>
                 <div class="offre-price-l">Tarif selon durée, programme et trajets</div>
               </div>
-              <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20chauffeur%20priv%C3%A9%20avec%20la%20Classe%20V%20Maybach." class="btn-or" target="_blank">
+              <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20chauffeur%20priv%C3%A9%20avec%20la%20Classe%20V%20Maybach." class="btn-or" data-ap-btn target="_blank">
                 Réserver un chauffeur privé
               </a>
             </div>
@@ -1550,12 +1572,12 @@ footer {
         </div>
       </div>
 
-      <!-- ── OFFRE 4 : SÉJOUR DÉSERT (TAGHIT) ── -->
-      <div class="offre offre-act" style="padding:3rem" id="taghit">
+      <!-- ── OFFRE 5 : SÉJOUR DÉSERT (TAGHIT) ── -->
+      <div class="offre offre-act" data-ap-up style="padding:3rem" id="taghit">
         <div class="mob-header">
           <div class="mob-header-left">
-            <div class="offre-kicker">Offre 04</div>
-            <h3 class="offre-title">Séjour à Taghit</h3>
+            <div class="offre-kicker">Offre 05</div>
+            <h3 class="offre-title" data-ap-title>Séjour à Taghit</h3>
             <p class="offre-pitch" style="max-width:480px;margin-bottom:0">
               Une parenthèse au cœur du Sahara. Algérie Prestige organise votre séjour à Taghit dans les moindres détails : vol, hôtel, repas et activités sont coordonnés de bout en bout, pour une découverte du désert dans un cadre confortable et accompagné.
             </p>
@@ -1611,12 +1633,13 @@ footer {
                 <div class="offre-price-n">460€</div>
                 <div class="offre-price-l">par personne · forfait 4 jours / 3 nuits</div>
               </div>
-              <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20s%C3%A9jour%20d%C3%A9sert%20%C3%A0%20Taghit." class="btn-or" target="_blank">
+              <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20s%C3%A9jour%20d%C3%A9sert%20%C3%A0%20Taghit." class="btn-or" data-ap-btn target="_blank">
                 Réserver ce séjour
               </a>
             </div>
           </div>
         </div>
+      </div>
 
     </div>
   </div>
@@ -1628,7 +1651,7 @@ footer {
 
     <div style="text-align:center;margin-bottom:2rem;" class="reveal">
       <div class="eyebrow" style="justify-content:center;margin-bottom:.75rem;">Chiffres réels · Depuis août 2025</div>
-      <h2>Des résultats mesurés.<br><em>Rien n'est inventé.</em></h2>
+      <h2 data-ap-title>Des résultats mesurés.<br><em>Rien n'est inventé.</em></h2>
     </div>
 
     <div class="preuves-cols">
@@ -1737,7 +1760,7 @@ footer {
   <div class="container">
     <div class="sec-head reveal">
       <div class="eyebrow">Comment ça marche</div>
-      <h2>Cinq étapes claires.<br><em>Vous savez toujours où on en est.</em></h2>
+      <h2 data-ap-title>Cinq étapes claires.<br><em>Vous savez toujours où on en est.</em></h2>
       <p>Chaque étape a un livrable concret. Cliquez sur une étape pour voir le détail.</p>
     </div>
 
@@ -1871,7 +1894,7 @@ footer {
       <div>
         <div class="sec-head reveal">
           <div class="eyebrow">Algérie Prestige vs agence classique</div>
-          <h2>Ce que vous ne trouverez<br><em>pas ailleurs.</em></h2>
+          <h2 data-ap-title>Ce que vous ne trouverez<br><em>pas ailleurs.</em></h2>
         </div>
         <table class="comp-table reveal">
           <thead>
@@ -1958,7 +1981,7 @@ footer {
   <div class="container">
     <div class="sec-head reveal">
       <div class="eyebrow">Témoignages</div>
-      <h2>Des familles.<br><em>Des projets réels.</em></h2>
+      <h2 data-ap-title>Des familles.<br><em>Des projets réels.</em></h2>
     </div>
     <div class="t-grid reveal">
       <div class="tcard">
@@ -2003,7 +2026,7 @@ footer {
   <div class="container">
     <div class="sec-head reveal">
       <div class="eyebrow">Des questions ?</div>
-      <h2>On vous <em>répond.</em></h2>
+      <h2 data-ap-title>On vous <em>répond.</em></h2>
     </div>
     <div class="faq-layout reveal">
       <div class="faq-cats" id="faqCats">
@@ -2021,10 +2044,10 @@ footer {
 <section id="cta">
   <div class="cta-inner reveal">
     <div class="cta-kicker">Prêt à commencer ?</div>
-    <h2 class="cta-h2 serif">Votre projet mérite<br><em>un partenaire d'exception.</em></h2>
+    <h2 class="cta-h2 serif" data-ap-title>Votre projet mérite<br><em>un partenaire d'exception.</em></h2>
     <p class="cta-p">Un appel de 20 minutes suffit pour savoir si on peut vous aider. Sans engagement, sans frais. Choisissez l'option qui vous convient le mieux.</p>
     <div class="cta-options">
-      <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20d%C3%A9marrer%20mon%20projet%20avec%20Alg%C3%A9rie%20Prestige." class="btn-or" target="_blank">
+      <a href="https://wa.me/33769335116?text=Bonjour%2C%20je%20souhaite%20d%C3%A9marrer%20mon%20projet%20avec%20Alg%C3%A9rie%20Prestige." class="btn-or" data-ap-btn target="_blank">
         Démarrer mon projet
         <span class="arr"></span>
       </a>
@@ -2067,6 +2090,7 @@ footer {
       <ul>
         <li><a href="#offre-excellence">Offre Excellence</a></li>
         <li><a href="#services">Gestion Immobilière</a></li>
+        <li><a href="location-appartement-alger.html">ONE TWO THREE</a></li>
         <li><a href="#chauffeur-maybach">Chauffeur Privé</a></li>
         <li><a href="#taghit">Séjour à Taghit</a></li>
       </ul>
@@ -2216,5 +2240,24 @@ document.querySelectorAll('.faq-cat-btn').forEach(btn => {
 });
 if (faqListEl) renderFaq('services');
 </script>
+<script>
+/* MENU MOBILE */
+(function(){
+  var b=document.getElementById('navBurger'), m=document.getElementById('apMenu'), n=document.getElementById('nav');
+  if(!b||!m) return;
+  function set(o){
+    b.setAttribute('aria-expanded',o?'true':'false'); b.setAttribute('aria-label',o?'Fermer le menu':'Ouvrir le menu');
+    m.classList.toggle('ap-open',o); m.setAttribute('aria-hidden',o?'false':'true'); n.classList.toggle('menu-open',o);
+    document.documentElement.style.overflow=o?'hidden':'';
+  }
+  function pad(){ m.style.paddingTop=Math.round(n.getBoundingClientRect().bottom+20)+'px'; }
+  b.addEventListener('click',function(){ var o=b.getAttribute('aria-expanded')!=='true'; if(o) pad(); set(o); });
+  m.addEventListener('click',function(e){ if(e.target.closest('a')) set(false); });
+  addEventListener('keydown',function(e){ if(e.key==='Escape') set(false); });
+  addEventListener('resize',function(){ if(innerWidth>1024) set(false); });
+})();
+</script>
+<script>window.AP_MOTION={titles:'[data-ap-title]'};</script>
+<script src="assets/ap-motion.js" defer></script>
 </body>
 </html>
