@@ -18,7 +18,12 @@
   var seen = io ? new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('ap-in'); seen.unobserve(e.target); } });
   }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 }) : null;
-  function watch(el) { if (seen) seen.observe(el); else el.classList.add('ap-in'); }
+  function watch(el) {
+    if (!seen) { el.classList.add('ap-in'); return; }
+    var r = el.getBoundingClientRect();     // déjà à l'écran au chargement : apparition immédiate (hors marge d'observation)
+    if (r.top < innerHeight && r.bottom > 0) { requestAnimationFrame(function () { el.classList.add('ap-in'); }); return; }
+    seen.observe(el);
+  }
 
   /* titres : découpe en mots en conservant les balises internes (em, span...) */
   function split(node, counter) {

@@ -18,6 +18,11 @@
 .ap-js .ap-rule{transform:scaleX(0);transform-origin:left;transition:transform 1.2s var(--ap-ease) .2s}
 .ap-js .ap-rule.ap-in{transform:none}
 
+/* état initial posé dès le premier affichage, avant l'exécution du script (évite tout clignotement) */
+.ap-js [data-ap-up]:not(.ap-in){opacity:0;transform:translateY(22px)}
+.ap-js [data-ap-rule]:not(.ap-in){transform:scaleX(0);transform-origin:left}
+.ap-js [data-ap-title]:not(.ap-title){visibility:hidden}
+
 /* boutons : balayage doré au survol, flèche qui avance */
 .ap-btn{position:relative;overflow:hidden;isolation:isolate;transition:color .35s ease,border-color .35s ease,background-color .35s ease,transform .35s var(--ap-ease)}
 .ap-btn::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,transparent 20%,rgba(222,192,122,.28) 50%,transparent 80%);transform:translateX(-120%);transition:transform .8s var(--ap-ease)}
@@ -47,7 +52,8 @@
 
 @media (prefers-reduced-motion:reduce){
   .ap-js body{animation:none}
-  .ap-js .ap-wi,.ap-js .ap-up,.ap-js .ap-rule{transform:none!important;opacity:1!important;transition:none!important}
+  .ap-js .ap-wi,.ap-js .ap-up,.ap-js .ap-rule,.ap-js [data-ap-up],.ap-js [data-ap-rule]{transform:none!important;opacity:1!important;transition:none!important}
+  .ap-js [data-ap-title]:not(.ap-title){visibility:visible}
   .ap-btn::after{display:none}
   .ap-card:hover,.ap-btn:hover{transform:none}
   .ap-par>.ap-par-in{transform:none}
