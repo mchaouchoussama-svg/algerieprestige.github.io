@@ -1179,6 +1179,18 @@ footer {
 @keyframes nvSheen{to{transform:translateX(130%)}}
 @keyframes nvPulse{0%,100%{opacity:1}50%{opacity:.3}}
 
+/* ─── Vidéo d'arrière-plan d'accueil (derrière bandeau + hero) ─── */
+#stage{position:relative;overflow:hidden;background:var(--noir)}
+#stage>.hero-bg{position:absolute;inset:0;z-index:0;background:var(--noir);overflow:hidden}
+#stage>.hero-bg .ap-video{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;background-position:center 55%}
+#stage>.hero-bg .ap-video::after{display:none}
+#stage>.hero-bg .ap-video video{object-position:center 55%;opacity:0}
+#stage>.hero-bg .ap-video.ap-playing video{opacity:.6}
+#stage>.hero-bg::after{background:linear-gradient(105deg,rgba(6,5,4,.94) 34%,rgba(6,5,4,.55) 100%),linear-gradient(to top,var(--noir) 0,rgba(6,5,4,0) 22%)}
+#stage #nouveaute{background:transparent}
+#stage #hero{background:transparent}
+@media (max-width:860px){#stage>.hero-bg::after{background:linear-gradient(to bottom,rgba(6,5,4,.78) 0,rgba(6,5,4,.88) 100%)}}
+
 /* ─── Section principale ─── */
 #hero{min-height:calc(100vh - 120px);grid-template-rows:1fr auto auto}
 .hero-content{padding-top:2.8rem;padding-bottom:2.2rem;max-width:780px}
@@ -1348,6 +1360,11 @@ footer {
 </div>
 
 <!-- ═══════════ HERO ═══════════ -->
+<div id="stage">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="ap-video" data-poster="assets/video/accueil-poster.jpg" data-hd="assets/video/accueil-hd.mp4" data-sd="assets/video/accueil-sd.mp4"><video muted loop playsinline preload="none"></video></div>
+  </div>
+
 <!-- ═══════════ NOUVEAUTÉ : ONE TWO THREE ═══════════ -->
 <section id="nouveaute" aria-label="Nouveauté : ONE TWO THREE, rentre dans ton pays">
   <div class="nv">
@@ -1367,13 +1384,6 @@ footer {
 </section>
 
 <section id="hero">
-  <div class="hero-bg">
-    <video autoplay muted loop playsinline
-      poster="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85">
-      <source src="https://videos.pexels.com/video-files/30216992/12955648_640_360_60fps.mp4" type="video/mp4">
-    </video>
-  </div>
-
   <div class="hero-content" data-ap-stagger>
     <div class="eyebrow hero-tag" data-ap-up>
       Basé à Alger · Depuis août 2025 · 147 familles accompagnées
@@ -1421,6 +1431,7 @@ footer {
     </div>
   </div>
 </section>
+</div><!-- /stage -->
 
 <!-- MARQUEE -->
 <div class="mq-wrap">
